@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Test Extension Options</title></head>
+	<link rel="stylesheet" href="bootstrap.min.css" >
+<body>
+
+	<h2>Good-Loop Browser Extension</h2>
+
+	<div class='card'>
+		<div class='card-body'>
+			<h3 class="card-title">Adverts to Block</h3>
+			<p>
+				TODO don't block, just screen them off as opt-in
+			</p>
+			<div class="form-check">
+				<label class="form-check-label">
+					<input name='facebook' type='checkbox' class='form-check-input'>
+					Facebook adverts slipped into your stream
+				</label>
+			</div>
+		</div>
+	</div>
+
+Favorite color:
+<select id="color">
+ <option value="red">red</option>
+ <option value="green">green</option>
+ <option value="blue">blue</option>
+ <option value="yellow">yellow</option>
+</select>
+
+<label>
+  <input type="checkbox" id="like">
+  I like colors.
+</label>
+
+<div id="status"></div>
+<button id="save">Save</button>
+
+<script src="options.js"></script>
+</body>
+</html>
