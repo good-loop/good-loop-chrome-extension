@@ -3,29 +3,29 @@
  
 	"name": "Good-Loop Browser Extension",
 	"description": "We're working on this... TODO: banner ads in a top section + collect data with permission",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	
 	"icons": {
 		"64": "img/logo.64.png"
 	},
  
-	/* a button in the toolbar */
 	"browser_action": {
 	  "default_icon": "img/logo.svg",
 	  "default_popup": "popup.html",
 	  "default_title": "Hello World"
 	},
 
-	/* runs on web pages */
 	"content_scripts": [		
 		{			
 			"matches": ["<all_urls>"],
-			"exclude_matches": ["*://*good-loop.com/*"],
+			"exclude_matches": ["*://as.good-loop.com/*","*://my.good-loop.com/*","*://good-loop.com/*"],
 			"js": ["build/js/bundle-debug.js"]
 		}
 	],
 
-	/* NB: there are also page_actions and background_pages */
+	"chrome_url_overrides" : {
+		"newtab": "newtab.html"
+	},
 
 	"optional_permissions": [
 	  "activeTab",
