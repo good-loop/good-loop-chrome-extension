@@ -14,6 +14,34 @@ let h='100px';
 
 let MYGL = 'https://testmy.good-loop.com';
 
+// TODO -- inject CMP code
+// (function() {
+//     'use strict'; 
+//     console.warn("Installing my __tcfapi and __cmp on", window);
+  
+//   let fn = function(...args) {
+//         console.warn("My CMP", args);
+//     };
+    
+//  Object.defineProperty(unsafeWindow, "__tcfapi",
+// { value : fn,
+// writable: false,
+// enumerable: false,
+// configurable: false}
+// );
+  
+//   Object.defineProperty(unsafeWindow, "__cmp",
+// { value : fn,
+// writable: false,
+// enumerable: false,
+// configurable: false}
+// );
+  
+//  console.warn("window.__cmp", unsafeWindow.__cmp, unsafeWindow);
+//     // Your code here...
+// })();
+
+
 // window.rmglext = () => {
 // 	document.getElementById("glext").remove();
 // };
@@ -27,7 +55,7 @@ $('body').append(
 	<div style='float:right; width:64px;overflow:hidden;'>		
 		<a href='${MYGL}'><img src='${MYGL}/img/logo/LogoMark/logo.64.png' /></a>
 	</div>
-	<iframe src='${MYGL}/#banner' style='float:right; height:${h}; width:calc(100vw - 100px);' />
+	<iframe src='${MYGL}/banner.html' style='float:right; height:${h}; width:calc(100vw - 100px);' />
 </div>`);
 
 function storeSet(key,val,callback) {
