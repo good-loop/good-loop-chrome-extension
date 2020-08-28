@@ -1,5 +1,7 @@
 
 import $ from 'jquery';
+import {addScript} from './base/utils/miscutils';
+
 // import _ from 'lodash';
 
 const LOGTAG = "GL-extension";
@@ -50,13 +52,18 @@ let MYGL = 'https://testmy.good-loop.com';
 // to inject the code needed to hide this
 // https://stackoverflow.com/questions/9515704/insert-code-into-the-page-context-using-a-content-script
 // <button onClick='rmglext'>X</button><br>
-$('body').append(
-`<div id='glext' style='width:100%; height:${h}; background:white; border:1px solid #333; z-index:2000;'>
-	<div style='float:right; width:64px;overflow:hidden;'>		
-		<a href='${MYGL}'><img src='${MYGL}/img/logo/LogoMark/logo.64.png' /></a>
-	</div>
-	<iframe src='${MYGL}/banner.html' style='float:right; height:${h}; width:calc(100vw - 100px);' />
-</div>`);
+// $('body').append(
+// `<div id='glext' style='width:100%; height:${h}; background:white; border:1px solid #333; z-index:2000;'>
+// 	<div style='float:right; width:64px;overflow:hidden;'>		
+// 		<a href='${MYGL}'><img src='${MYGL}/img/logo/LogoMark/logo.64.png' /></a>
+// 	</div>
+// 	<iframe src='${MYGL}/banner.html' style='float:right; height:${h}; width:calc(100vw - 100px);' />
+// </div>`);
+
+
+// TODO: add "script.js" to web_accessible_resources in manifest.json
+let uInject = chrome.runtime.getURL('inject.js');
+addScript(uInject);
 
 function storeSet(key,val,callback) {
 	chrome.extension.sendMessage({action:"setstorage"}, function(response){

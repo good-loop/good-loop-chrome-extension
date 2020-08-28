@@ -9,6 +9,8 @@
 		"64": "img/gl-logo/LogoMark/logo.64.png"
 	},
  
+	"web_accessible_resources": ["inject.js"],
+
 	"chrome_url_overrides" : {
 		"newtab": "newtab.html"
 	},
@@ -20,5 +22,13 @@
 	"options_ui": {
 		"page": "options.html",
 		"open_in_tab": false
-	}
+	},
+
+	"content_scripts": [		
+		{			
+			"matches": ["<all_urls>"],
+			"exclude_matches": ["*://as.good-loop.com/*","*://my.good-loop.com/*","*://good-loop.com/*"],
+			"js": ["build/js/bundle-debug.js"]
+		}
+	]
  }
