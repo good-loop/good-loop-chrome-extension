@@ -1,29 +1,20 @@
 {
 	"manifest_version": 2,
  
-	"name": "Good-Loop Browser Extension",
+	"name": "Good-Loop: Tabs for Good",
 	"description": "We're working on this... TODO: banner ads in newtab and a panel + collect data with permission",
-	"version": "0.1.5",
-	
+	"version": "0.1.6",
+
 	"icons": {
 		"64": "img/gl-logo/LogoMark/logo.64.png"
 	},
  
-	// "content_scripts": [		
-	// 	{			
-	// 		"matches": ["<all_urls>"],
-	// 		"exclude_matches": ["*://as.good-loop.com/*","*://my.good-loop.com/*","*://good-loop.com/*"],
-	// 		"js": ["build/js/bundle-debug.js"]
-	// 	}
-	// ],
-
 	"chrome_url_overrides" : {
 		"newtab": "newtab.html"
 	},
 
 	"optional_permissions": [
 	  "storage"
-	//   "browsingData"
 	],
 
 	"options_ui": {
