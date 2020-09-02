@@ -68,6 +68,12 @@ function injectScript(func) {
 	script.remove();
 };
 
+// TODO CMP functions (as seen on a fandom.com page)
+// getConsentData undefined callback
+// ping 2 callback
+// getTCData 2 callback [91]
+
+
 injectScript(function() {
 	console.log("HELLO FROM THE PAGE :)", window, document);
 
@@ -93,7 +99,7 @@ injectScript(function() {
 		}
 	);
 
-	console.warn("window.__cmp", window.__cmp);
+	console.warn("Good-Loop CMP set: window.__cmp", window.__cmp, window.__tcfapi);
 });
 
 // TODO: add "script.js" to web_accessible_resources in manifest.json
