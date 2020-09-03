@@ -2,6 +2,11 @@
 const kvstore = {};
 window.kvstore = kvstore;
 
+const DEFAULTS = {
+	tabUrl: "https://testmy.good-loop.com/newtab.html",
+	cmp: true
+};
+
 /**
  * 
  * @param {string} key 
@@ -34,3 +39,13 @@ kvstore.set = (key, value, callback) => {
 };
 
 
+kvstore.setupDefaults = () => {
+	console.log("setupDefaults");
+	Object.keys(DEFAULTS).forEach(k => {
+		if ( ! kvstore.get(k)) {
+			kvstore.set(k, DEFAULTS[k]);
+		}
+	});
+};
+
+kvstore.setupDefaults();

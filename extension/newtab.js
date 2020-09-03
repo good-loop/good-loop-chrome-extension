@@ -1,13 +1,10 @@
 
-let url;
-// Get options
-if (kvstore) {
-	url = kvstore.get("tabUrl");
-}
-if ( ! url) {
-	url = "https://testmy.good-loop.com/newtab.html";
-	kvstore.set("tabUrl", url);
-} 
+let url = kvstore.get("tabUrl");
+
+// if ( ! url) {
+// 	url = ;
+// 	kvstore.set("tabUrl", url);
+// } 
 
 console.log("urk",url);
 // console.log("contentscript Chrome storage",chrome.storage);

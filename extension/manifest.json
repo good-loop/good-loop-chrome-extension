@@ -2,8 +2,8 @@
 	"manifest_version": 2,
  
 	"name": "Good-Loop: Tabs for Good",
-	"description": "We're working on this... TODO: banner ads in newtab and a panel + collect data with permission",
-	"version": "0.1.6",
+	"description": "We're working on this... Raise money for charity by placing banner ads in newtab + collect data with permission",
+	"version": "0.1.7",
 
 	"icons": {
 		"64": "img/gl-logo/LogoMark/logo.64.png"
