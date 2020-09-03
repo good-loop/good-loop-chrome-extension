@@ -4,7 +4,10 @@ let url;
 if (kvstore) {
 	url = kvstore.get("tabUrl");
 }
-if ( ! url) url = "https://testmy.good-loop.com/newtab.html";
+if ( ! url) {
+	url = "https://testmy.good-loop.com/newtab.html";
+	kvstore.set("tabUrl", url);
+} 
 
 console.log("urk",url);
 // console.log("contentscript Chrome storage",chrome.storage);
