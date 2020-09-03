@@ -68,6 +68,11 @@ function injectScript(func) {
 	script.remove();
 };
 
+// Get options
+console.log("contentscript Chrome storage",chrome.storage);
+console.log("contentscript Local storage",window.localStorage && window.localStorage.getItem("GLtestOption"));
+
+
 // TODO CMP functions (as seen on a fandom.com page)
 // getConsentData undefined callback
 // ping 2 callback
