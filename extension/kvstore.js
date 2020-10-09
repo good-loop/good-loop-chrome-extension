@@ -3,7 +3,8 @@ const kvstore = {};
 window.kvstore = kvstore;
 
 const DEFAULTS = {
-	tabUrl: "https://testmy.good-loop.com/newtab.html",
+	// TODO: Reset to test for production
+	tabUrl: "http://localmy.good-loop.com/newtab.html",
 	cmp: true
 };
 
@@ -42,9 +43,10 @@ kvstore.set = (key, value, callback) => {
 kvstore.setupDefaults = () => {
 	console.log("setupDefaults");
 	Object.keys(DEFAULTS).forEach(k => {
-		if ( ! kvstore.get(k)) {
+		// TODO: Undisable for production
+		//if ( ! kvstore.get(k)) {
 			kvstore.set(k, DEFAULTS[k]);
-		}
+		//}
 	});
 };
 

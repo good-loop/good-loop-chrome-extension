@@ -2,7 +2,7 @@
 import $ from 'jquery';
 import {addScript} from './base/utils/miscutils';
 // load the kvstore options manager
-import _kvstore from '../../extension/kvstore';
+import kvstore from '../../extension/kvstore';
 
 // import _ from 'lodash';
 
@@ -16,7 +16,7 @@ console.log(LOGTAG, "CMP?", kvstore.get("cmp"));
 // let uLogo2 = chrome.extension.getURL('img/logo.64.png');
 
 function injectScript(func) {
-	let actualCode = '(' + func + ')();'
+	let actualCode = '(' + func + ')();';
 	let script = document.createElement('script');
 	script.textContent = actualCode;
 	(document.head||document.documentElement).appendChild(script);
