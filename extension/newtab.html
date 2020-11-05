@@ -23,10 +23,28 @@
 			padding: 0;
 			border: none
 		}
-	</style>	
+
+		.serverControls {
+			position:absolute;
+			z-index: 1;
+			top: 10;
+			left: 10;
+			padding: 20px;
+			box-shadow: 2px 2px 4px rgba(0,0,0,0.75);
+			background-color: white;
+		}
+	</style>
 </head>
 <body>
 	<iframe id='tab' class="iframe"></iframe>
+	<div class="serverControls">
+		Server:
+		<select id="serverToggle" onchange="reloadTab()">
+			<option value="prod">Prod</option>
+			<option value="test" selected="selected">Test</option>
+			<option value="local">Local</option>
+		</select>
+	</div>
 	<script src='kvstore.js'></script>
 	<script src='newtab.js'></script>
 </body>
