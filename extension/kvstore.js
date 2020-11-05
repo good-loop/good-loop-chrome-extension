@@ -4,7 +4,8 @@ window.kvstore = kvstore;
 
 const DEFAULTS = {
 	// TODO: Reset to test for production
-	tabUrl: "http://testmy.good-loop.com/newtab.html",
+	tabUrl: "https://testmy.good-loop.com/newtab.html",
+	serverType: "test",
 	cmp: true
 };
 
@@ -26,7 +27,6 @@ kvstore.get = (key, callback) => {
 	return val;
 };
 
-
 /**
  * 
  * @param {?Object} callback to match chrome.storage.get
@@ -44,9 +44,9 @@ kvstore.setupDefaults = () => {
 	console.log("setupDefaults");
 	Object.keys(DEFAULTS).forEach(k => {
 		// TODO: Undisable for production
-		//if ( ! kvstore.get(k)) {
+		if ( ! kvstore.get(k)) {
 			kvstore.set(k, DEFAULTS[k]);
-		//}
+		}
 	});
 };
 

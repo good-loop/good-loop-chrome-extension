@@ -7,6 +7,9 @@ let url = kvstore.get("tabUrl");
 // }
 
 console.log("urk",url);
+
+let serverType = kvstore.get("serverType");
+document.querySelector("#serverToggle option[value=" + serverType + "]").setAttribute("selected", "selected");
 // console.log("contentscript Chrome storage",chrome.storage);
 // console.log("contentscript Local storage",window.localStorage && window.localStorage.getItem("GLtestOption"));
 
@@ -18,7 +21,7 @@ console.log("urk",url);
 document.getElementById('tab').setAttribute('src', url);
 
 const reloadTab = () => {
-    let serverType = document.getElementById('serverToggle').value;
+    serverType = document.getElementById('serverToggle').value;
     let urlConfig = {
         prod:{
             prefix:"",
@@ -36,6 +39,8 @@ const reloadTab = () => {
 
     url = urlConfig.protocol + "://" + urlConfig.prefix + "my.good-loop.com/newtab.html";
     console.log("Reloading page on " + serverType);
+    kvstore.set("tabUrl", url);
+    kvstore.set("serverType", serverType);
     document.getElementById('tab').setAttribute('src', url);
 };
 
