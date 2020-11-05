@@ -4,7 +4,7 @@ window.kvstore = kvstore;
 
 const DEFAULTS = {
 	// TODO: Reset to test for production
-	tabUrl: "http://localmy.good-loop.com/newtab.html",
+	tabUrl: "http://testmy.good-loop.com/newtab.html",
 	cmp: true
 };
 
