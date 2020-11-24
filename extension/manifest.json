@@ -1,12 +1,12 @@
 {
-	"manifest_version": 3,
+	"manifest_version": 4,
  
 	"name": "Good-Loop: Tabs for Good",
 	"description": "Raise money for charity by placing banner ads in newtab + collect data with permission",
-	"version": "0.1.8",
+	"version": "0.1.9",
 
 	"icons": {
-		"64": "img/gl-logo/LogoMark/logo.64.png"
+		"64": "img/logo.64.png"
 	},
 
 	"incognito":"not_allowed",
