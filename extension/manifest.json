@@ -32,5 +32,5 @@
 		}
 	],
 
-	"content_security_policy": "img-src * data: blob: 'unsafe-inline'"
+	"content_security_policy": "img-src * data: blob: 'unsafe-inline'; script-src 'self'; object-src 'self'"
  }
