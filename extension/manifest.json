@@ -1,13 +1,15 @@
 {
-	"manifest_version": 2,
+	"manifest_version": 3,
  
 	"name": "Good-Loop: Tabs for Good",
-	"description": "We're working on this... Raise money for charity by placing banner ads in newtab + collect data with permission",
-	"version": "0.1.7",
+	"description": "Raise money for charity by placing banner ads in newtab + collect data with permission",
+	"version": "0.1.8",
 
 	"icons": {
 		"64": "img/gl-logo/LogoMark/logo.64.png"
 	},
+
+	"incognito":"not_allowed",
  
 	"web_accessible_resources": ["inject.js"],
 
@@ -28,7 +30,7 @@
 		{			
 			"matches": ["<all_urls>"],
 			"exclude_matches": ["*://as.good-loop.com/*","*://my.good-loop.com/*","*://good-loop.com/*"],
-			"js": ["build/js/bundle-debug.js"]
+			"js": ["build/js/bundle.js"]
 		}
 	],
 
