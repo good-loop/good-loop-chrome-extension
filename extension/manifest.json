@@ -1,5 +1,5 @@
 {
-	"manifest_version": 4,
+	"manifest_version": 2,
  
 	"name": "Good-Loop: Tabs for Good",
 	"description": "Raise money for charity by placing banner ads in newtab + collect data with permission",
@@ -32,7 +32,6 @@
 			"exclude_matches": ["*://as.good-loop.com/*","*://my.good-loop.com/*","*://good-loop.com/*"],
 			"js": ["build/js/bundle.js"]
 		}
-	],
+	]
 
-	"content_security_policy": "img-src * data: blob: 'unsafe-inline'; script-src 'self'; object-src 'self'"
  }
