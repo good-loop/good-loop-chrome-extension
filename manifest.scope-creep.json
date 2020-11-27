@@ -3,7 +3,7 @@
  
 	"name": "Good-Loop: Tabs for Good",
 	"description": "Raise money for your favourite charity by simply browsing the web!",
-	"version": "0.2.0",
+	"version": "0.1.9",
 
 	"icons": {
 		"64": "img/logo.64.png"
@@ -11,6 +11,8 @@
 
 	"incognito":"not_allowed",
  
+	"web_accessible_resources": ["inject.js"],
+
 	"chrome_url_overrides" : {
 		"newtab": "newtab.html"
 	},
@@ -22,6 +24,14 @@
 	"options_ui": {
 		"page": "options.html",
 		"open_in_tab": false
-	}	
+	},
+
+	"content_scripts": [		
+		{			
+			"matches": ["<all_urls>"],
+			"exclude_matches": ["*://as.good-loop.com/*","*://my.good-loop.com/*","*://good-loop.com/*"],
+			"js": ["build/js/bundle.js"]
+		}
+	]
 
  }
