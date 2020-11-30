@@ -44,17 +44,19 @@
 </head>
 <body>
 	<div id="bg" style="position: absolute; top:0; left:0; right:0; bottom: 0;"></div>
-	<iframe id='tab' class="iframe" sandbox="allow-forms allow-scripts allow-top-navigation allow-same-origin allow-popups" allowtransparency="true"></iframe>
-	<div class="serverControls">
+	<iframe id='tab'
+		src="https://my.good-loop.com/newtab.html"
+		class="iframe" sandbox="allow-forms allow-scripts allow-top-navigation allow-same-origin allow-popups" allowtransparency="true"
+	></iframe>
+	<!-- div class="serverControls">
 		Server:
 		<select id="serverToggle" onchange="reloadTab()">
 			<option value="prod">Prod</option>
 			<option value="test">Test</option>
 			<option value="local">Local</option>
 		</select>
-	</div>
-	<script src='kvstore.js'></script>
-	<script src='newtab.js'></script>
+	</div -->
+	<!-- script src='newtab.js'></script -->
 	<script src="bgselect.js"></script>
 </body>
 </html>
