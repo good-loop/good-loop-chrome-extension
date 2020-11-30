@@ -16,6 +16,8 @@ It should also nobble annoying consent scripts :)
 
 Publish here: https://chrome.google.com/webstore/devconsole/
 
+Using this info: https://docs.google.com/document/d/1xtsh4ukGgKZ9MAliNY3CAdLVa-SBSLN_TS6BjnRL1Fo
+
 ## Future Work
 
 Cross-browser - see: 
