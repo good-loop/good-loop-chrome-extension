@@ -11,7 +11,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webDir = process.env.OUTPUT_WEB_DIR || 'extension';
 
 const baseConfig = {
-	entry: ['@babel/polyfill', './src/js/contentscript.js'],
+	entry: ['@babel/polyfill'], //'./src/js/contentscript.js'], No contentscript needed for T4G
 	output: {
 		path: path.resolve(__dirname, './' + webDir + '/build/'), // NB: this should include js and css outputs
 		// filename: is left undefined and filled in by makeConfig
