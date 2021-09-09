@@ -3,10 +3,14 @@
  
 	"name": "Good-Loop: Tabs for Good - Alpha Team!",
 	"description": "Raise money for charity while using the web! This is the Alpha version with the latest features. Thank you for helping test it.",
-	"version": "0.2.3",
+	"version": "0.2.4",
 
 	"icons": {
-		"64": "img/logo.64.png"
+		"64": "img/logo.64.png",
+		"128": "img/logo.128.png",
+		"160": "img/logo.160.png",
+		"512": "img/logo.512.png",
+		"1024": "img/logo.1024.png"
 	},
 
 	"incognito":"not_allowed",
