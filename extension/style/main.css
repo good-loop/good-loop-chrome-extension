@@ -1,0 +1,3315 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:600,800|Tajawal&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Montserrat&display=swap);
+/* Use for "mobile only" */
+/* widescreen desktops */
+/** 
+HACK: copy some BS rules, so we can refer to them here in .less
+?? Is there a better way to do this?
+*/
+.shadow {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+/**
+BS style support for display:grid
+e.g.
+<div class="gridbox gridbox-md-3">
+defines a 3 column grid
+*/
+.gridbox {
+  display: grid;
+  grid-auto-rows: 1fr;
+  grid-column-gap: 1px;
+  grid-row-gap: 1px;
+}
+@media (min-width: 576px) {
+  .gridbox-sm-1 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .gridbox-sm-2 {
+    grid-template-columns: repeat(2, 2fr);
+  }
+  .gridbox-sm-3 {
+    grid-template-columns: repeat(3, 3fr);
+  }
+  .gridbox-sm-4 {
+    grid-template-columns: repeat(4, 4fr);
+  }
+  .gridbox-sm-5 {
+    grid-template-columns: repeat(5, 5fr);
+  }
+  .gridbox-sm-6 {
+    grid-template-columns: repeat(6, 6fr);
+  }
+  .gridbox-sm-7 {
+    grid-template-columns: repeat(7, 7fr);
+  }
+}
+@media (min-width: 768px) {
+  .gridbox-md-1 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .gridbox-md-2 {
+    grid-template-columns: repeat(2, 2fr);
+  }
+  .gridbox-md-3 {
+    grid-template-columns: repeat(3, 3fr);
+  }
+  .gridbox-md-4 {
+    grid-template-columns: repeat(4, 4fr);
+  }
+  .gridbox-md-5 {
+    grid-template-columns: repeat(5, 5fr);
+  }
+  .gridbox-md-6 {
+    grid-template-columns: repeat(6, 6fr);
+  }
+  .gridbox-md-7 {
+    grid-template-columns: repeat(7, 7fr);
+  }
+}
+/* spinner */
+.loader-box {
+  padding-top: 50px;
+}
+.loader {
+  border-top: 16px solid #770f00;
+  border-right: 16px solid #3e767f;
+  border-bottom: 16px solid #af2009;
+  border-left: 16px solid #5ca5c0;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+.spinning {
+  animation: spin 3s infinite linear;
+}
+@keyframes spin {
+  from {
+    transform: scale(1) rotate(0deg);
+  }
+  to {
+    transform: scale(1) rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+.img-credit {
+  z-index: 100;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: white;
+  background: #666;
+}
+/**
+BS 5 off-canvas, backport for BS 4
+*/
+.offcanvas.show {
+  transform: none;
+  visibility: visible;
+}
+.offcanvas-start {
+  top: 50px;
+  left: 0;
+  width: 400px;
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  transform: translateX(-100%);
+  box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.5);
+}
+.offcanvas {
+  position: fixed;
+  bottom: 0;
+  z-index: 1045;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  visibility: hidden;
+  background-color: #fff;
+  background-clip: padding-box;
+  outline: 0;
+  transition: transform 0.3s ease-in-out;
+}
+/* HACK open button */
+.offcanvas-toggle {
+  position: fixed;
+  top: 50px;
+  left: 0px;
+}
+.offcanvas-header .offcanvas-toggle {
+  position: absolute;
+  left: auto;
+  right: 0.5rem;
+  top: 0.5rem;
+}
+.DropZone {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  border: 2px dashed #666;
+  border-radius: 5px;
+  cursor: pointer;
+}
+/* have the save button always visible */
+.SavePublishDeleteEtc {
+  position: fixed;
+  bottom: 0;
+  padding: 10px;
+  color: white;
+  background: #333;
+  width: 100%;
+  z-index: 100;
+}
+.panel-heading.btn-link {
+  cursor: pointer;
+}
+/* The loading spinner*/
+.loader-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.loader-box .spinner-box {
+  width: 120px;
+  height: 120px;
+  animation: spin 2s infinite linear;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.loader-box.inline {
+  flex-direction: row;
+}
+.loader-box.inline .spinner-box {
+  width: 50px;
+  height: 50px;
+}
+.loader-box.inline .loader-text {
+  margin-left: 1em;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.emoji {
+  font-family: "Noto Color Emoji", "Apple Color Emoji", "Segoe UI Emoji", Times, Symbola, Aegyptus, Code2000, Code2001, Code2002, Musica, serif, LastResort;
+  font-variant-emoji: emoji;
+  font-size: 2em;
+}
+.emoji.logo-sm {
+  font-size: 1em;
+}
+.emoji.logo-lg {
+  font-size: 6em;
+}
+/**
+	This fixes the issue that an emoji can have weird colours with unpredictable UX effects
+	To do different colours, apply more css :'(
+*/
+.emoji-black {
+  color: transparent;
+  text-shadow: 0 0 0 black;
+}
+.emoji-white {
+  color: transparent;
+  text-shadow: 0 0 0 white;
+}
+.emoji-grey {
+  color: transparent;
+  text-shadow: 0 0 0 #666;
+}
+.emoji-success {
+  color: transparent;
+  text-shadow: 0 0 0 green;
+}
+.emoji-info {
+  color: transparent;
+  text-shadow: 0 0 0 blue;
+}
+.emoji-warning {
+  color: transparent;
+  text-shadow: 0 0 0 yellow;
+}
+.emoji-danger {
+  color: transparent;
+  text-shadow: 0 0 0 red;
+}
+.ListLoad {
+  margin-bottom: 0.5em;
+}
+.ListLoad .filter {
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid #333;
+}
+.ListLoad .LL-buttons {
+  justify-content: space-evenly;
+  margin: 0.5em;
+}
+.ListLoad > div:not(:first-child) {
+  margin-top: 0.5em;
+}
+.ListItem {
+  display: inline-flex;
+  flex-direction: row;
+  width: calc(100% - 4em);
+}
+.ListItem > *:not(:first-child) {
+  margin-left: 0.5em;
+}
+.ListItem .id {
+  font-family: monospace;
+}
+.TaskList {
+  margin-left: 1em;
+  margin-bottom: 1em;
+  border-left: 1px solid #666;
+  padding-left: 1em;
+  background: white;
+  height: 100%;
+  max-width: 350px;
+  min-width: 200px;
+}
+.login-guts {
+  /**
+	wide login buttons
+	*/
+}
+.login-guts .login-divs {
+  display: flex;
+}
+.login-guts .btn.signin {
+  width: 100%;
+  text-align: left;
+}
+.switch-verb {
+  float: right;
+  text-align: right;
+}
+@media (max-width: 576px) {
+  .login-modal #loginByEmail label {
+    display: none;
+  }
+  .login-modal .modal-title {
+    font-size: 1rem;
+    line-height: 1.25;
+  }
+  .login-modal .modal-title .logo {
+    height: 2.5em;
+    width: 2.5em;
+  }
+}
+.MessageBar {
+  position: fixed;
+  /* below dialogs, but above the page base */
+  z-index: 101;
+}
+.MessageBar .alert {
+  overflow-x: scroll;
+  max-height: 25em;
+  position: relative;
+}
+.MessageBar .alert .close {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+}
+.MessageBar.side {
+  right: 0;
+  bottom: 0;
+  width: 25em;
+}
+/* a more compact form layout than BS standard (see also form-inline) */
+.form-compact .form-group {
+  margin-bottom: 0.85rem;
+}
+.form-compact label {
+  margin-bottom: 0rem;
+}
+.form-compact .form-control:not(.btn-lg,.btn-sm),
+.form-compact .btn:not(.btn-lg,.btn-sm) {
+  padding: 0.55rem 0.35rem 0.15rem 0.35rem;
+  line-height: 1;
+  height: calc(1em + 0.7rem + 2px);
+}
+.form-compact .form-control[type="color"] {
+  padding: 0;
+}
+.form-compact .input-group-append,
+.form-compact .input-group-prepend {
+  height: calc(1em + 0.7rem + 2px);
+}
+.form-compact input.form-check-input {
+  margin-top: 0;
+}
+.form-compact .card-header.btn {
+  height: unset;
+}
+/* ./form-compact */
+/* checkbox layout vs sizing - BS default looks a bit broken */
+.form-control-sm {
+  height: 1.3em;
+  line-height: 1;
+}
+.form-group .input-group.input-group-sm .form-control {
+  height: calc(1.3em + 0.4rem + 2px);
+  line-height: 1.3;
+  padding-top: 0.5rem;
+}
+.form-group .input-group.input-group-sm .input-group-prepend,
+.form-group .input-group.input-group-sm .input-group-append,
+.form-group .input-group.input-group-sm .btn {
+  height: calc(1.3em + 0.4rem);
+  line-height: 1.3;
+}
+.form-control-lg {
+  height: 1.5em;
+}
+.form-group.Money input,
+.form-group.email input,
+.form-group.imgUpload input,
+.form-group.videoUpload input,
+.form-group.textarea textarea {
+  max-width: 40em;
+}
+.form-group.imgUpload .video-thumbnail,
+.form-group.videoUpload .video-thumbnail,
+.form-group.bothUpload .video-thumbnail,
+.form-group.imgUpload .img-thumbnail,
+.form-group.videoUpload .img-thumbnail,
+.form-group.bothUpload .img-thumbnail,
+.form-group.imgUpload .DropZone,
+.form-group.videoUpload .DropZone,
+.form-group.bothUpload .DropZone {
+  margin: 5px;
+  height: 100px;
+}
+.form-group.imgUpload .DropZone,
+.form-group.videoUpload .DropZone,
+.form-group.bothUpload .DropZone {
+  width: 120px;
+}
+.form-group.imgUpload .img-thumbnail.stripe-bg,
+.form-group.videoUpload .img-thumbnail.stripe-bg,
+.form-group.bothUpload .img-thumbnail.stripe-bg {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOAQMAAAAlhr+SAAAABlBMVEW7u7tVVVXOtErWAAAAM0lEQVQI12P4x8Dwh4XhBw/DBxmGBzYMB2oYGv4wMP5hYP7BwP6Bgf8Bg/wBBvsGhnoGADdeDd7GEVhmAAAAAElFTkSuQmCC);
+}
+.keyset .keys {
+  margin-bottom: 1em;
+}
+.keyset .key {
+  padding: 0.25em;
+  border: 1px solid grey;
+  border-radius: 0.25em;
+  margin-right: 0.25em;
+}
+.keyset .remove-key {
+  background-color: black;
+  color: white;
+  margin-left: 0.25em;
+  border-radius: 0.25em;
+  cursor: pointer;
+}
+.pills .form-control input {
+  border: none;
+}
+.pills .form-control input:focus {
+  border: none;
+}
+/** Make the inner wrapper of the autocomplete element a position reference for the dropdown menu */
+.autocomplete > div {
+  position: relative;
+}
+/**
+This mimics Bootstrap's form-control on-focus.
+You can apply it to, well, anything.
+*/
+.focus {
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+  margin: -1px;
+}
+/* aggressively hide filtered inputs! */
+.nomatch {
+  display: none;
+}
+/* Special styling for colour controls */
+.color-control {
+  position: relative;
+}
+.color-control .overlay {
+  pointer-events: none;
+  position: absolute;
+  z-index: 9;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: transparent;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+}
+.color-control .overlay.light-bg {
+  color: black;
+  text-shadow: 1px 1px 1px white;
+}
+.color-control .overlay.no-color {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOAQMAAAAlhr+SAAAABlBMVEW7u7tVVVXOtErWAAAAM0lEQVQI12P4x8Dwh4XhBw/DBxmGBzYMB2oYGv4wMP5hYP7BwP6Bgf8Bg/wBBvsGhnoGADdeDd7GEVhmAAAAAElFTkSuQmCC);
+}
+/* ./color-control */
+.SimpleTable {
+  /** by default, dont allow too big columns */
+  /* styling for tree children */
+}
+.SimpleTable td {
+  max-width: 33vw;
+  overflow: auto;
+}
+.SimpleTable tr.depth2 {
+  font-size: 90%;
+}
+.SimpleTable tr.depth2 td:first-child::before {
+  content: ' └ ';
+}
+.SimpleTable tr.depth3 {
+  font-size: 80%;
+}
+.SimpleTable tr.depth3 td:first-child::before {
+  content: ' -└- ';
+}
+.SimpleTable tr.depth3 td {
+  padding: 0.5rem;
+}
+.SimpleTable tr.depth4,
+.SimpleTable tr.depth5,
+.SimpleTable tr.depth6,
+.SimpleTable tr.depth7 {
+  font-size: 75%;
+}
+.SimpleTable tr.depth4 td:first-child::before,
+.SimpleTable tr.depth5 td:first-child::before,
+.SimpleTable tr.depth6 td:first-child::before,
+.SimpleTable tr.depth7 td:first-child::before {
+  content: ' --└-- ';
+}
+.SimpleTable tr.depth4 td,
+.SimpleTable tr.depth5 td,
+.SimpleTable tr.depth6 td,
+.SimpleTable tr.depth7 td {
+  padding: 0.4rem;
+}
+.SimpleTable .topRow {
+  font-weight: bold;
+}
+.table p {
+  padding-bottom: 0.25em;
+}
+.SimpleTable .table a {
+  word-break: break-word;
+}
+.SimpleTable.scroller {
+  width: 100%;
+  height: 100%;
+}
+.SimpleTable.scroller .scroll-div {
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+}
+.WizardProgressWidget {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.WizardProgressWidget .Stage {
+  position: relative;
+  display: inline-block;
+  /* evenly spaced */
+  flex-grow: 1;
+  flex-basis: 0;
+  color: #80bde7;
+}
+.WizardProgressWidget .Stage h5 {
+  font-size: 18px;
+  transition: opacity 0.5s;
+}
+.WizardProgressWidget .Stage .graphic {
+  position: relative;
+}
+.WizardProgressWidget .Stage .marker {
+  position: relative;
+  left: 50%;
+  margin-left: -15px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  z-index: 1;
+}
+.WizardProgressWidget .Stage .line {
+  position: absolute;
+  top: 15px;
+  width: 100%;
+  height: 0;
+  outline: 2px solid grey;
+  z-index: 0;
+}
+.WizardProgressWidget .Stage:first-child .line,
+.WizardProgressWidget .Stage:last-child .line {
+  width: 50%;
+}
+.WizardProgressWidget .Stage:first-child .line {
+  left: 50%;
+}
+.WizardProgressWidget .Stage.complete {
+  cursor: pointer;
+}
+.WizardProgressWidget .Stage .below {
+  opacity: 0;
+}
+.WizardProgressWidget .Stage.active .above {
+  opacity: 0;
+}
+.WizardProgressWidget .Stage.active .below {
+  opacity: 1;
+}
+.WizardProgressWidget .Stage .marker {
+  background-color: #80bde7;
+}
+.WizardProgressWidget .Stage.complete,
+.WizardProgressWidget .Stage.active {
+  color: #005;
+}
+.WizardProgressWidget .Stage.complete .marker,
+.WizardProgressWidget .Stage.active .marker {
+  background-color: #005;
+}
+.padded-block {
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.WizardStage {
+  min-height: 50vh;
+}
+.WizardStage .nav-buttons {
+  margin-top: 10px;
+}
+.WizardStage .nav-buttons-top {
+  margin-top: 0;
+  border-bottom: 1px solid #333;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+.footer {
+  border-top: 1px solid #999;
+  background: #333;
+  color: white;
+  font-size: 11pt;
+  line-height: 1;
+  min-height: 2em;
+  padding: 0.5em;
+}
+.footer a {
+  color: #5ca5c0;
+}
+.Ticker {
+  font-variant-numeric: tabular-nums;
+}
+.Ticker span {
+  text-align: center;
+  margin: unset;
+}
+a {
+  cursor: pointer;
+}
+.TODO {
+  display: none;
+}
+.avoid-navbar {
+  margin-top: 70px;
+}
+.navbar-brand {
+  padding: 2px;
+}
+.navbar-brand img {
+  min-height: 50%;
+  max-height: 48px;
+}
+/** an extra small button (btn-sm is too big for a 1-line-height setting*/
+.btn.btn-xs {
+  padding: 0.1rem 0.2rem;
+  line-height: 1;
+}
+/** I miss BS3's btn-default in BS4 -- note btn-outline-dark is a decent replacement */
+.btn-default {
+  color: #343a40;
+  border-color: #343a40;
+  background-color: #f8f9fa !important;
+}
+.btn-default:hover,
+.btn-default:focus,
+.btn-default:active {
+  color: #333;
+  background-color: #e6e6e6;
+}
+.btn-default:hover {
+  border-color: #adadad;
+}
+.btn-default:focus {
+  border-color: #8c8c8c;
+}
+.btn-default:active {
+  background-image: none;
+  border-color: #adadad;
+}
+/* avoid large X with odd spacing on badges */
+.badge .close {
+  font-size: inherit;
+}
+.pull-left {
+  float: left;
+}
+.pull-right {
+  float: right;
+}
+.checkbox input {
+  margin-top: 0;
+}
+.no-margin {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.no-margin-bottom {
+  margin-bottom: 0px;
+}
+.logo {
+  width: 4em;
+  height: 4em;
+}
+.logo-xs,
+img.logo-xsmall {
+  width: 1em;
+  height: 1em;
+}
+.logo-sm,
+img.logo-small {
+  width: 2em;
+  height: 2em;
+}
+.logo-lg,
+img.logo-large {
+  width: 6em;
+  height: 6em;
+}
+.logo-xl,
+.logo-xlarge {
+  width: 8em;
+  height: 8em;
+}
+img.logo,
+img.logo-xs,
+img.logo-xsmall,
+img.logo-sm,
+img.logo-small,
+img.logo-lg,
+img.logo-large,
+img.logo-xl,
+img.logo-xlarge {
+  object-fit: contain;
+}
+.full-width {
+  width: 100vw;
+}
+@media (min-width: 576px) {
+  .full-width {
+    margin-left: calc(0.5*(540px - 30px - 100vw));
+  }
+}
+@media (min-width: 768px) {
+  .full-width {
+    margin-left: calc(0.5*(720px - 30px - 100vw));
+  }
+}
+@media (min-width: 992px) {
+  .full-width {
+    margin-left: calc(0.5*(960px - 30px - 100vw));
+  }
+}
+@media (min-width: 1200px) {
+  .full-width {
+    margin-left: calc(0.5*(1140px - 30px - 100vw));
+  }
+}
+/* define GL colours */
+.bg-gl-red {
+  background-color: #770f00;
+}
+.bg-gl-dark-blue {
+  background-color: #3e767f;
+}
+.bg-light-blue {
+  background-color: #5ca5c0;
+}
+.bg-gl-dark-grey {
+  background-color: #928b81;
+}
+.bg-gl-light-grey {
+  background-color: #dddad3;
+}
+.text-shadow-light-blue {
+  text-shadow: #5ca5c0 2px 2px;
+}
+.color-gl-red {
+  color: #770f00;
+}
+.fill-gl-red {
+  fill: #770f00;
+}
+/* @deprecated prefer text-dark/light-n over a hard-coded colour. */
+.black {
+  color: #000;
+}
+.white {
+  color: #fff;
+}
+.text-dark-0 {
+  color: #343a40;
+}
+.bg-dark-0 {
+  background-color: #343a40;
+}
+.text-light-0 {
+  color: #f8f9fa;
+}
+.bg-light-0 {
+  background-color: #f8f9fa;
+}
+.text-dark-1 {
+  color: #3e767f;
+}
+.bg-dark-1 {
+  background-color: #3e767f;
+}
+.text-light-1 {
+  color: #dddad3;
+}
+.bg-light-1 {
+  background-color: #dddad3;
+}
+.text-dark-2 {
+  color: #770f00;
+}
+.bg-dark-2 {
+  background-color: #770f00;
+}
+.text-light-2 {
+  color: #5ca5c0;
+}
+.bg-light-2 {
+  background-color: #5ca5c0;
+}
+/* GL button: red button on white background */
+.btn-gl {
+  background-color: #fff;
+  color: #770f00;
+  border-color: #770f00;
+  font-weight: bold;
+}
+.btn-gl:hover {
+  text-decoration: underline;
+}
+.color-facebook {
+  color: #3b5998;
+}
+.color-twitter {
+  color: #4099ff;
+}
+.color-instagram {
+  color: #e95950;
+}
+.color-linkedin {
+  color: #0077B5;
+}
+.color-good-loop {
+  color: #770f00;
+}
+.bg-facebook {
+  background-color: #3b5998;
+}
+.bg-twitter {
+  background-color: #4099ff;
+}
+.bg-instagram {
+  background-color: #e95950;
+}
+.bg-linkedin {
+  background-color: #0077B5;
+}
+.bg-good-loop {
+  background-color: #770f00;
+}
+.btn-facebook {
+  color: #3b5998;
+  background-color: white;
+  border: 1px solid #3b5998;
+}
+.btn-facebook:hover {
+  color: white;
+  background-color: #3b5998;
+}
+.btn-twitter {
+  color: #4099ff;
+  background-color: white;
+  border: 1px solid #4099ff;
+}
+.btn-twitter:hover {
+  color: white;
+  background-color: #4099ff;
+}
+.flex {
+  display: flex;
+}
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+/** a flex row which does not expand to full width */
+.flex-row-compact {
+  display: flex;
+  flex-direction: row;
+}
+.flex-row-reverse {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.flex-grow {
+  display: flex;
+  flex: 1 !important;
+}
+.flex-vertical-align {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.flex-centre {
+  align-items: center;
+}
+.flex-align-items-start {
+  align-items: start;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+/* https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
+.flexbox-1row {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+.flex-space-between {
+  justify-content: space-between;
+}
+/* To setup: symlink the fonts folder from wwappbase.js into web/fonts
+e.g.
+	cd web
+	ln -s ../src/js/base/base-fonts .
+(assuming src/js/base is already a symlink to wwappbase.js/base)
+*/
+/** This is UPPERCASE so only use it for _short_ headers. 
+Otherwise its hard to read, and shouty.
+*/
+.header-font {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+.sub-header-font {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
+.body-font {
+  font-family: "Tajawal", sans-serif;
+  font-weight: 400;
+}
+body {
+  font-family: "Tajawal", sans-serif;
+  font-weight: 400;
+}
+h1,
+h2 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+h3,
+h4,
+h5 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
+/* NB ,h3,h4,h5 look too cramped in Bebas */
+body code {
+  color: inherit;
+}
+/** Opposite of .small 
+NB: BS defines .small for textm and -sm -lg for some widgets, but not .large for text */
+.large {
+  font-size: 1.25em;
+}
+@media (min-width: 1200px) {
+  .large {
+    font-size: 1.4em;
+  }
+}
+.navbar {
+  position: fixed!important;
+  width: 100%;
+  background-color: transparent;
+}
+.navbar .navbar-brand {
+  z-index: 1;
+}
+.navbar .navbar-brand .logo-sm {
+  width: 10em;
+  height: 2em;
+}
+.navbar #top-right-menu,
+.navbar .dropdown-toggle {
+  text-shadow: 0 0 1px #000;
+}
+.MyPage {
+  background-color: #eeeaea;
+  width: 100%;
+}
+.MyPage h2.text-center {
+  font-weight: normal;
+  text-transform: capitalize;
+  color: #af2009;
+}
+@media (max-width: 450px) {
+  .navbar .dropdown-toggle {
+    font-size: 100%;
+  }
+}
+.subscription-box input {
+  width: 100% !important;
+}
+.big-sub-box {
+  padding: 200px 0px;
+}
+.big-sub-box h1,
+.big-sub-box h2,
+.big-sub-box h3,
+.big-sub-box h4,
+.big-sub-box h5 {
+  color: white !important;
+  font-weight: 600;
+}
+.big-sub-box input {
+  font-size: 2rem;
+  border-radius: 0;
+  width: 100%;
+}
+.big-sub-box .btn {
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+.big-sub-box p {
+  color: white;
+}
+@media (max-width: 767px) {
+  .big-sub-box {
+    padding: 50px 0;
+  }
+  .big-sub-box h1,
+  .big-sub-box h2,
+  .big-sub-box h3,
+  .big-sub-box h4,
+  .big-sub-box h5 {
+    font-size: 2rem;
+    text-align: center;
+    padding: 0px 10px;
+  }
+  .big-sub-box input {
+    font-size: 1rem;
+  }
+  .big-sub-box .btn {
+    font-size: 1rem;
+  }
+}
+.MyCharitiesPage {
+  /*
+	// TODO promote / delete / comment (why can't this be done with standard BS button classes?)
+    .paginator {
+        .paginator-controls {
+            .paginator-btn {
+                color: blue;
+                text-decoration: none;
+                &.selected {
+                    text-decoration: underline;
+                }
+                &.disabled {
+                    color: grey;
+                }
+                font-size: 1.5rem;
+            }
+        }
+    }*/
+}
+.MyCharitiesPage h1,
+.MyCharitiesPage h2,
+.MyCharitiesPage h3,
+.MyCharitiesPage h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: normal;
+  margin-bottom: 1.3rem;
+  align-self: center;
+}
+.MyAdCampaignsPage h1,
+.MyAdCampaignsPage h2,
+.MyAdCampaignsPage h3,
+.MyAdCampaignsPage h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: normal;
+  margin-bottom: 1.3rem;
+  align-self: center;
+}
+.MyAdCampaignsPage .tv-ad-player {
+  top: 13.5%;
+  left: 10.5%;
+  width: 78%;
+  z-index: 5;
+  background-color: white;
+}
+.MyAdCampaignsPage .unit-shadow {
+  filter: drop-shadow(-20px 20px 10px rgba(22, 26, 27, 0.5));
+}
+.MyAdCampaignsPage h3 {
+  text-transform: uppercase !important;
+  font-weight: 600 !important;
+}
+/** citation "footnote" *s get some on-hover juice */
+a.Ref {
+  text-decoration: none !important;
+  transition: 0.3s;
+  transform: scale(1) rotate(0deg);
+  display: inline-block;
+}
+a.Ref:hover {
+  transform: scale(2) rotate(20deg);
+  transition: 0.3s;
+}
+@media (min-width: 992px) {
+  .GetInvolvedPage .w-md-50 {
+    width: 50% !important;
+  }
+}
+.GetInvolvedPage .w-md-25 {
+  width: 50% !important;
+}
+@media (min-width: 992px) {
+  .GetInvolvedPage .w-md-25 {
+    width: 25% !important;
+  }
+}
+.GetInvolvedPage h1,
+.GetInvolvedPage h2,
+.GetInvolvedPage h3,
+.GetInvolvedPage h4 {
+  margin-bottom: 1.3rem;
+  align-self: center;
+}
+.GetInvolvedPage h2,
+.GetInvolvedPage h3,
+.GetInvolvedPage h4 {
+  color: #af2009;
+}
+.GetInvolvedPage h3,
+.GetInvolvedPage h4 {
+  text-transform: uppercase;
+}
+@media (max-width: 992px) {
+  .GetInvolvedPage .mobile-break {
+    width: 100% !important;
+  }
+}
+.format-picker button {
+  padding-top: 1em;
+  margin: 1em 1em;
+  font-size: 1.2em;
+}
+.device-picker button {
+  padding: 0 1em;
+  max-width: 8em;
+}
+.device-picker svg {
+  max-width: 60px;
+  max-height: 3.5em;
+  margin: 0 auto;
+  width: 100%;
+  pointer-events: none;
+}
+.device-picker svg#desktop {
+  max-width: 6em;
+}
+.picker-button {
+  color: #000;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.15em;
+  font-family: 'Montserrat', sans-serif;
+  border: none;
+  display: inline-block;
+  position: relative;
+  outline: none!important;
+  background-color: #fff;
+}
+.picker-button:not(.format-picker) {
+  height: 5em;
+}
+.picker-button.disabled {
+  color: lightgray!important;
+  pointer-events: none!important;
+}
+.picker-button:after {
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  background: #830000;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+.picker-button:hover {
+  background-color: transparent!important;
+}
+.picker-button:hover:not(.current) {
+  color: #000 !important;
+}
+.picker-button:hover:after {
+  width: 100%;
+  left: 0;
+}
+.picker-button.current {
+  color: #830000;
+  font-weight: 800;
+}
+.picker-button.current:after {
+  width: 100%;
+  left: 0;
+}
+.picker-button:not(.disabled) svg {
+  filter: drop-shadow(0px 2px 1px rgba(0, 0, 0, 0.4));
+}
+.alert {
+  max-width: 600px;
+  margin: 0 auto;
+  margin-bottom: 1em;
+}
+.demo-div-container {
+  width: 100%!important;
+}
+.red-bg,
+.half-bg {
+  width: 100%;
+  position: relative;
+}
+.red-bg:before,
+.half-bg:before,
+.red-bg:after,
+.half-bg:after {
+  content: '';
+  display: block;
+  height: 100%;
+  width: 50vw;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
+.red-bg:before,
+.half-bg:before {
+  right: 50%;
+}
+.red-bg:after,
+.half-bg:after {
+  left: 50%;
+}
+.red-bg:before,
+.red-bg:after {
+  background-color: #770f00;
+}
+.half-bg:before,
+.half-bg:after {
+  background-image: linear-gradient(to bottom, white 50%, #770f00 50%);
+}
+.device-container {
+  display: inline-block;
+  position: relative;
+}
+.device-container .device-screen-bg {
+  position: absolute;
+  z-index: 0;
+  background-color: #fff;
+}
+.device-container .ad-container {
+  position: absolute;
+  z-index: 1;
+}
+.device-container .social-mockup {
+  width: 101%;
+  margin-left: -1%;
+}
+.device-container .frame-img {
+  position: relative;
+  pointer-events: none;
+  z-index: 2;
+}
+.device-container.landscape {
+  width: 100%;
+  max-width: 800px;
+}
+.device-container.landscape .device-screen-bg {
+  left: 3%;
+  top: 6%;
+  width: 94%;
+  height: 87%;
+}
+.device-container.landscape .ad-container {
+  left: 7%;
+  top: 7%;
+  width: 86%;
+}
+.device-container.landscape .frame-img {
+  width: 100%;
+}
+.device-container.desktop {
+  width: 100%;
+}
+.device-container.desktop .device-screen-bg {
+  display: none;
+}
+.device-container.desktop .ad-container {
+  width: 64%;
+  left: 19%;
+  top: 18%;
+}
+.device-container.desktop .frame-img {
+  width: 100%;
+  z-index: 0;
+}
+.device-container.portrait {
+  height: 80vh;
+}
+.device-container.portrait .device-screen-bg {
+  left: 6%;
+  top: 3%;
+  width: 88%;
+  height: 94%;
+  border-radius: 5vh;
+}
+.device-container.portrait .ad-container {
+  left: 7%;
+  top: 7%;
+  width: 86%;
+}
+.device-container.portrait .frame-img {
+  height: 100%;
+}
+.ad-sizer {
+  position: relative;
+  overflow: hidden;
+  /* prevent margin collapse with aspectifier */
+}
+.ad-sizer .goodloopad,
+.ad-sizer iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.ad-sizer .vpaid-container {
+  width: 100%;
+  height: 100%;
+}
+.ad-sizer.landscape .aspectifier {
+  margin-top: 56.25%;
+}
+.ad-sizer.portrait .aspectifier {
+  margin-top: 177.77%;
+}
+.ad-sizer.square .aspectifier {
+  margin-top: 100%;
+}
+.fake-feed,
+.social-ad {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.fake-feed {
+  background-color: pink;
+}
+.social-ad {
+  background-color: black;
+  transform: translateY(100%);
+  transition-delay: 100ms;
+  transition: transform 0.4s ease-in;
+}
+.social-ad.show {
+  transform: translateY(0);
+}
+body {
+  overflow-x: hidden;
+}
+.mobileframe-shadow {
+  filter: drop-shadow(-10px 10px 10px rgba(0, 0, 0, 0.5));
+}
+.CampaignPage {
+  background-color: #fff !important;
+}
+.CampaignPage .stub-divider {
+  padding: 2px;
+  width: 15%;
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
+  background-color: #af2009;
+}
+.CampaignPage .flex-column > * {
+  margin: unset;
+}
+.CampaignPage .impact-hub-splash {
+  position: relative;
+  height: 100vh;
+  background-color: #f55d58;
+}
+@media (max-width: 1080px) {
+  .CampaignPage .impact-hub-splash {
+    background-color: #ffffff;
+  }
+}
+.CampaignPage .impact-hub-splash .splash-curve {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+}
+.CampaignPage .impact-hub-splash .splash-img {
+  height: 100%;
+  object-fit: cover;
+}
+.CampaignPage .impact-hub-splash .dark-overlay {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+@media (max-width: 1080px) {
+  .CampaignPage .impact-hub-splash .dark-overlay {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+}
+.CampaignPage .impact-hub-splash .splash-card {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+@media (max-width: 767px) {
+  .CampaignPage .impact-hub-splash .splash-card {
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+}
+.CampaignPage .impact-hub-splash .splash-content {
+  width: 40%;
+  height: 100%;
+}
+@media (max-width: 1080px) {
+  .CampaignPage .impact-hub-splash .splash-content {
+    height: 75%;
+    padding-top: 70px;
+    width: 100%;
+  }
+}
+@media (max-width: 1080px) and (max-width: 767px) {
+  .CampaignPage .impact-hub-splash .splash-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+@media (max-width: 1080px) {
+  .CampaignPage .impact-hub-splash .splash-text {
+    text-shadow: 0 2px 3px black;
+  }
+}
+.CampaignPage .impact-hub-splash .hero {
+  min-height: 40vh;
+}
+.CampaignPage .impact-hub-splash .hero .hero-circles {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 68.75%;
+  margin: auto;
+}
+@media (max-width: 767px) {
+  .CampaignPage .impact-hub-splash .hero .hero-circles {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+.CampaignPage .impact-hub-splash .hero .hero-circles .plus {
+  width: 30px;
+}
+@media (max-width: 767px) {
+  .CampaignPage .impact-hub-splash .hero .hero-circles .plus {
+    width: 20px;
+  }
+}
+.CampaignPage .impact-hub-splash .hero .WhiteCircle {
+  width: 40%;
+}
+.CampaignPage .impact-hub-splash .hero .WhiteCircle .sub-header {
+  font-size: 1.4rem;
+  color: #af2009;
+  font-weight: 700;
+}
+@media (max-width: 1080px) {
+  .CampaignPage .impact-hub-splash .hero .WhiteCircle .sub-header {
+    font-size: 1.3rem;
+  }
+}
+@media (max-width: 767px) {
+  .CampaignPage .impact-hub-splash .hero .WhiteCircle .sub-header {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 2100px) {
+  .CampaignPage .impact-hub-splash .hero .WhiteCircle .sub-header {
+    font-size: 2rem;
+  }
+}
+.CampaignPage .impact-hub-splash .hero .WhiteCircle .sub-header .num {
+  font-size: 1.2rem;
+}
+@media (max-width: 767px) {
+  .CampaignPage .impact-hub-splash .hero .WhiteCircle .sub-header .num {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 2100px) {
+  .CampaignPage .impact-hub-splash .hero .WhiteCircle .sub-header .num {
+    font-size: 2rem;
+  }
+}
+.CampaignPage .impact-hub-splash .hero .header {
+  font-weight: 600;
+  font-size: 2.35rem;
+}
+@media (max-width: 767px) {
+  .CampaignPage .impact-hub-splash .hero .header {
+    font-size: 1.7rem;
+  }
+}
+@media (max-width: 767px) and (max-height: 568px) {
+  .CampaignPage .impact-hub-splash .hero .header {
+    font-size: 1.5rem;
+  }
+}
+.CampaignPage .impact-hub-splash .hero .header a {
+  color: white !important;
+}
+.CampaignPage .impact-hub-splash .hero .header a:hover {
+  color: #FBE1DE !important;
+}
+.CampaignPage .impact-hub-splash .hero .header a span {
+  text-decoration: underline;
+}
+.CampaignPage .impact-hub-splash .hero .subtext {
+  font-size: 1.5rem;
+}
+@media (max-width: 767px) {
+  .CampaignPage .impact-hub-splash .hero .subtext {
+    font-size: 1rem;
+  }
+}
+.CampaignPage .impact-hub-splash .splash-buttons {
+  position: absolute;
+  bottom: 20px;
+  left: 50px;
+  z-index: 3;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+@media (max-width: 767px) {
+  .CampaignPage .impact-hub-splash .splash-buttons {
+    justify-content: center;
+    left: 0px;
+    width: 100%;
+    padding: 0px 10px;
+  }
+}
+.CampaignPage h1,
+.CampaignPage h2 {
+  color: #af2009;
+}
+.CampaignPage h1,
+.CampaignPage h2,
+.CampaignPage h3,
+.CampaignPage h4,
+.CampaignPage h5 {
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.CampaignPage .charity-card .charity-description a {
+  font-weight: bold;
+  font-style: italic;
+  color: #af2009;
+  text-decoration: none;
+}
+.CampaignPage .blockquote {
+  font-size: 0.8rem;
+}
+.CampaignPage .theunit-landscape {
+  z-index: 5;
+  width: 57%;
+  top: 50.2%;
+  left: 49.6%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+}
+@media (max-width: 767px) {
+  .CampaignPage .theunit-landscape {
+    width: 100%;
+    top: 0;
+    left: 0;
+    transform: unset;
+  }
+}
+.CampaignPage .theunit-landscape .goodLoopContainer {
+  height: 100%;
+  margin: auto;
+  box-shadow: 0px 0px 5px black;
+}
+.CampaignPage .theunit-portrait {
+  z-index: 5;
+  height: 29.75%;
+  top: 17.9%;
+  left: 49.75%;
+  transform: translate(-50%, -50%);
+}
+@media (max-width: 767px) {
+  .CampaignPage .theunit-portrait {
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform: unset;
+  }
+}
+.CampaignPage .theunit-portrait .goodLoopContainer {
+  height: 100%;
+  margin: auto;
+  box-shadow: 0px 0px 5px black;
+}
+.CampaignPage .unit-shadow {
+  filter: drop-shadow(-20px 20px 10px rgba(22, 26, 27, 0.5));
+}
+.CampaignPage .tablet-container {
+  position: absolute;
+  z-index: 1;
+  top: 8.8%;
+  left: 18.2%;
+  width: 71.6%;
+  height: 74.6%;
+  overflow: hidden;
+}
+@media (max-width: 768px) {
+  .CampaignPage .tablet-container {
+    top: 10.2%;
+    left: 9.8%;
+    width: 79.3%;
+    height: 71.8%;
+  }
+}
+.CampaignPage .tablet-container .tablet-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 0;
+}
+.CampaignPage .tablet-overlay {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+.CampaignPage .ad-card {
+  position: relative;
+  z-index: 99;
+}
+@media (max-width: 768px) {
+}
+.CampaignPage .pointer-wrapper {
+  cursor: pointer;
+}
+.CampaignPage .pointer-wrapper .ad-prev {
+  pointer-events: none;
+  overflow: hidden;
+  border: 5px solid transparent;
+  transition: 0.2s;
+}
+.CampaignPage .pointer-wrapper.selected {
+  cursor: default;
+}
+.CampaignPage .pointer-wrapper.selected .ad-prev {
+  border-radius: 5px;
+  border: 5px solid red;
+  transition: 0.2s;
+}
+.CampaignPage .charity-quote {
+  background-color: white;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+}
+.CampaignPage .charity-quote .charity-quote-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.CampaignPage .charity-quote .charity-quote-content {
+  padding: 40px;
+  padding-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.CampaignPage .charity-quote .charity-quote-content .charity-quote-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+.CampaignPage .charity-quote .charity-quote-content .charity-quote-logo {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+.CampaignPage .charity-quote .charity-quote-content .charity-quote-logo img {
+  max-height: 150px;
+  max-width: 150px;
+}
+@media (max-width: 767px) {
+  .CampaignPage .charity-quote .charity-quote-content .charity-quote-logo {
+    margin-bottom: 20px;
+    justify-content: center;
+  }
+}
+.CampaignPage .charity-quote .testimonial-video {
+  border-radius: 20px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+.CampaignPage .charity-quote .testimonial-video .testimonial-play-btn {
+  pointer-events: none;
+}
+.CampaignPage .charity-quote .testimonial-video .testimonial-play-btn.playing {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(2);
+  transition: 0.2s;
+}
+.CampaignPage .charity-quote .testimonial-video .testimonial-play-btn.paused {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  transition: 0.2s;
+}
+.CampaignPage .charity-quote .testimonial-video .duration-bar {
+  height: 10px;
+  transition: height 0.2s;
+}
+.CampaignPage .charity-quote .testimonial-video:hover .duration-bar {
+  height: 15px;
+  transition: height 0.2s;
+}
+.CampaignPage .charity-quote.no-img {
+  justify-content: center;
+  padding: 50px 0;
+}
+.CampaignPage .charity-quote.no-img .charity-quote-logo {
+  justify-content: center;
+  margin-bottom: 50px;
+}
+.CampaignPage .charity-quote.no-img .charity-quote-content {
+  width: 50%;
+}
+@media (max-width: 767px) {
+  .CampaignPage .charity-quote.no-img .charity-quote-content {
+    width: 100%;
+  }
+}
+.CampaignPage .small-print {
+  color: white;
+  background-color: #830000;
+}
+.CampaignPage .w-60 {
+  width: 60% !important;
+}
+.CampaignPage .carousel-indicators {
+  z-index: 1001;
+  bottom: -50px;
+}
+.CampaignPage .carousel-indicators li {
+  background-color: #af2009;
+}
+.CampaignPage .carousel-indicators li.active {
+  background-color: #770f00;
+}
+.CampaignPage .carousel-control-next-icon {
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' fill='%23000' width='8' height='8' viewBox='0 0 8 8'><path d='M2.75 0l-1.5 1.5L3.75 4l-2.5 2.5L2.75 8l4-4-4-4z'/></svg>");
+}
+.CampaignPage .carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath d='M5.25 0l-4 4 4 4 1.5-1.5L4.25 4l2.5-2.5L5.25 0z'/%3e%3c/svg%3e");
+}
+.CampaignPage .wide-controls .carousel-control-next {
+  right: -120px;
+}
+.CampaignPage .wide-controls .carousel-control-prev {
+  left: -120px;
+}
+.CampaignPage a[class*="carousel-control-"] {
+  z-index: 1000;
+}
+.CampaignPage .smallprint {
+  line-height: 1.2;
+}
+.CampaignPage .ad-filters .select {
+  margin: 0px 20px;
+}
+.CampaignPage .ad-filters .ad-filter-btn {
+  cursor: pointer;
+  border: 1px solid #af2009;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px 20px;
+  max-width: 250px;
+}
+.CampaignPage .ad-filters .ad-filter-btn.selected {
+  border-bottom: 5px solid #af2009;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+.CampaignPage .ad-filters .ad-filter {
+  transition: 0.3s;
+  overflow: hidden;
+}
+.CampaignPage .ad-filters .ad-filter h5 {
+  color: #af2009;
+  font-size: 100%;
+  transition: 0.3s;
+}
+.CampaignPage .ad-filters .ad-filter.collapsed {
+  height: 30px;
+  transition: 0.3s;
+}
+.CampaignPage .ad-filters .ad-filter.collapsed h5 {
+  font-size: 80%;
+  transition: 0.3s;
+}
+.CampaignPage .ad-filters .ad-filter-list {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.CampaignPage .wider-impact-quote {
+  background: #5BA6BD;
+  /* Why local font rules? header tags/classes were being awkward here, May 2021 */
+  font-weight: 900;
+  font-size: 1.5rem;
+  font-family: "Montserrat", sans-serif;
+  color: white;
+}
+.CampaignPage .wider-impact-quote a {
+  color: white;
+}
+.CampaignPage .draft-banner {
+  top: 300px;
+  left: -300px;
+  width: 100%;
+  transform: rotate(-45deg);
+  z-index: 5;
+  background: url('/img/draft.png');
+  background-position: center;
+  background-repeat: repeat-x;
+  background-size: contain;
+  height: 50px;
+}
+.CampaignPage .draft-banner img {
+  height: 100px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.CampaignPage .draft-banner button {
+  position: relative;
+  z-index: 10;
+  top: 80px;
+}
+/*
+
+TODO: CSS Clean-Up to be more modular and robust
+
+Redefining font stuff (font family or size) or basic tags (e.g. h1,h2,p,a) for a specific section is usually a mistake, 
+as it leads to inconsistent styling + harder to maintain css.
+
+For the css below that deals in font/text matters:
+ - Can we remove this?
+ - ...If not, should it be promoted to a general rule?
+ - ...If not, add a comment
+
+*/
+/** a funky list of things to do. On mobile, it gracefully becomes less funky. 
+A .TubeLine div contains seberal sections with TubeLine-img and TubeLine-line
+*/
+@media (max-width: 767px) {
+  .TubeLine .TubeLine-img {
+    width: 50% !important;
+  }
+}
+.TubeLine .TubeLine-line {
+  position: absolute;
+  top: 0%;
+  bottom: 0;
+  left: 8.3%;
+  padding: 0px 1.5px;
+  background: #F9B139;
+}
+@media (max-width: 767px) {
+  .TubeLine .TubeLine-line {
+    display: none;
+  }
+}
+.TubeLine .done .TubeLine-line {
+  background: #07950C;
+}
+.AccountPage .account-sidebar .account-tab {
+  color: black;
+  text-decoration: none;
+}
+.AccountPage .account-sidebar .account-tab:hover {
+  background: #FEF5F4;
+}
+.AccountPage .account-sidebar .account-tab.active {
+  background: #FBE1DE;
+  font-weight: bold;
+}
+.AccountPage .user img {
+  width: 100%;
+}
+@media (max-width: 767px) {
+  .AccountPage .user img {
+    width: 25%;
+    margin-bottom: 1rem;
+  }
+}
+@media (max-width: 1080px) {
+  .AccountPage .user {
+    margin-top: 170px;
+  }
+}
+.AccountPage h1,
+.AccountPage h2,
+.AccountPage h3,
+.AccountPage h4 {
+  margin-bottom: 1.3rem;
+  align-self: center;
+}
+.AccountPage h2 {
+  color: #af2009;
+}
+.AccountPage .settings {
+  /* chunky settings */
+  font-size: 1.5rem;
+}
+.AccountPage .settings .hover-info {
+  position: relative;
+}
+.AccountPage .settings .hover-info .extra-info {
+  display: none;
+  font-size: 1rem;
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  background: white;
+  z-index: 99;
+  padding: 20px;
+  box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.5);
+}
+.AccountPage .settings .hover-info:hover .extra-info {
+  display: block;
+}
+.AccountPage .settings .form-check-label {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+}
+.AccountPage .settings .form-check-label input {
+  margin-left: 1rem;
+  margin-right: 0;
+}
+.charity-select-box {
+  border: 1px solid #af2009;
+  border-radius: 10px;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.25);
+  min-height: 300px;
+}
+.charity-select-box a {
+  color: #af2009;
+  font-weight: 600;
+}
+.charity-select-box a:hover {
+  color: #770f00;
+}
+.ListLoad .charity-select-box {
+  height: 100%;
+}
+@media (min-width: 768px) {
+  .gridbox-md-3 {
+    grid-template-columns: repeat(3, 33.33%);
+  }
+}
+.tab-search-container {
+  width: 50%;
+}
+@media (max-width: 767px) {
+  .tab-search-container {
+    width: 100%;
+  }
+}
+.tab-search {
+  color: #af2009;
+}
+.tab-search:hover {
+  cursor: pointer;
+  color: #770f00;
+}
+.tab-search-form {
+  background: white;
+  border: 1px solid gray;
+  border-radius: 100px;
+}
+.tab-search-form .search input {
+  margin: unset;
+  width: 100%;
+  border-radius: 100px;
+  background: transparent;
+  border: none;
+}
+.tab-search-form .search input:hover,
+.tab-search-form .search input:focus {
+  border: none;
+  box-shadow: none;
+}
+.tab-charity {
+  transform: scale(1);
+  transition: 0.2s;
+}
+.tab-charity:hover {
+  transform: scale(1.1);
+  transition: 0.2s;
+}
+.stat-card .stat-content {
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+}
+.tutorial-highlight {
+  border: 6px solid #af2009;
+  box-shadow: 0 0 10px #af2009;
+}
+.tutorial-component.highlight {
+  border: 6px solid #af2009;
+  box-shadow: 0 0 10px #af2009;
+  z-index: 1000;
+  padding: 10px;
+}
+.tutorial-component.highlight * {
+  z-index: 1000;
+}
+.onboarding h1 {
+  font-size: 3.5rem;
+}
+.onboarding h1,
+.onboarding h2,
+.onboarding p {
+  color: white;
+  font-weight: 500;
+  text-shadow: 3px 3px 6px #00000080;
+}
+#webtop h1,
+#webtop h2,
+#webtop h3,
+#webtop h4,
+#webtop h5 {
+  color: white;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+}
+#webtop .logo h4 {
+  text-transform: uppercase;
+  font-weight: 800;
+}
+.extension-btn {
+  /* Use a brighter red vs btn-primary to stand out against the backdrop */
+  background: #af2009 !important;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.25) !important;
+  padding: 0.75rem 1rem;
+  text-transform: uppercase;
+  transition: 0.2s;
+  /* Why no rounding here? ask Kati */
+  border-radius: 0;
+}
+.extension-btn:hover {
+  background: #e82316 !important;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.5) !important;
+}
+.tab-login-widget h1,
+.tab-login-widget h2,
+.tab-login-widget h3,
+.tab-login-widget h4 {
+  text-transform: uppercase;
+}
+.tab-login-widget.thankyou {
+  text-align: center;
+  padding: 50px;
+}
+.tab-login-widget.thankyou h1,
+.tab-login-widget.thankyou h2,
+.tab-login-widget.thankyou h3,
+.tab-login-widget.thankyou h4 {
+  color: #af2009 !important;
+}
+.tab-login-widget .login-content h1,
+.tab-login-widget .login-content h2,
+.tab-login-widget .login-content h3,
+.tab-login-widget .login-content h4 {
+  color: #af2009 !important;
+}
+.tab-login-widget .login-left,
+.tab-login-widget .login-right {
+  padding-top: 20%;
+}
+.tab-login-widget .login-left {
+  padding-left: 20%;
+}
+.tab-login-widget .login-right {
+  padding-right: 20%;
+}
+.tab-login-widget.flex-row-reverse .login-left {
+  padding-left: 0;
+  padding-right: 20%;
+}
+.tab-login-widget.flex-row-reverse .login-right {
+  padding-right: 0;
+  padding-left: 20%;
+}
+.tutorial-card {
+  border-radius: 20px;
+}
+.tutorial-card p {
+  font-size: 1.15rem;
+  color: darkslategray;
+}
+.tutorial-card h1,
+.tutorial-card h2,
+.tutorial-card h3,
+.tutorial-card h4 {
+  text-transform: uppercase;
+  color: #51B6AA !important;
+  font-size: 1.3rem;
+}
+.tutorial-card .page-circle {
+  border-radius: 50%;
+  border: 2px solid #af2009;
+  width: 15px;
+  width: 10px;
+}
+.tutorial-card .page-circle.selected {
+  background: #af2009;
+}
+.tutorial-card .page-circle:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+.tutorial-card .page-circle:hover {
+  cursor: pointer;
+}
+.tutorial-card .btn {
+  padding: 10px 30px;
+  background-color: #af2009;
+}
+@keyframes circleSpin180 {
+  0% {
+    transform: rotate(180deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+@keyframes circleSpin180Flipped {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+@keyframes circleFade {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.charity-register-circle {
+  animation-name: circleSpin180;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-out;
+}
+.charity-register-circle-flipped {
+  transform: rotate(180deg);
+  animation-name: circleSpin180Flipped;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-out;
+}
+.charity-circle-img {
+  animation-name: circleFade;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-out;
+}
+.charity-register input {
+  border-radius: 0;
+}
+.charity-register .btn-primary {
+  background-color: #1894DA !important;
+  font-weight: normal !important;
+}
+.charity-register .btn-primary:hover:not(.disabled) {
+  background-color: #5ca5c0 !important;
+}
+.charity-register .btn-primary:active:not(.disabled),
+.charity-register .btn-primary:focus:not(.disabled) {
+  background-color: #3e767f !important;
+}
+.charity-register h1,
+.charity-register h2,
+.charity-register h3,
+.charity-register h4 {
+  text-transform: uppercase;
+  color: grey;
+}
+@media (max-width: 1500px) {
+  .font-sizes {
+    font-size: 0.85rem;
+  }
+}
+@media (max-width: 1400px) {
+  .font-sizes {
+    font-size: 0.7rem;
+  }
+}
+@media (max-width: 1200px) {
+  .font-sizes {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 767px) {
+  .font-sizes {
+    font-size: 1rem;
+  }
+}
+.navbar {
+  background: transparent;
+  transition: 0.2s;
+}
+@media (max-width: 1500px) {
+  .navbar {
+    font-size: 0.85rem;
+  }
+}
+@media (max-width: 1400px) {
+  .navbar {
+    font-size: 0.7rem;
+  }
+}
+@media (max-width: 1200px) {
+  .navbar {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 767px) {
+  .navbar {
+    font-size: 1rem;
+  }
+}
+.navbar.scrolled {
+  background: #af2009;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.75);
+  transition: 0.2s;
+}
+.navbar.scrolled .nav-link:not(.btn) {
+  text-transform: uppercase;
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+  text-shadow: 0px 1px 5px rgba(0, 0, 0, 0.75);
+}
+.navbar .nav-link:not(.btn) {
+  text-transform: uppercase;
+  font-weight: 600;
+  color: black;
+  text-decoration: none;
+}
+.navbar .btn {
+  padding: 0.5rem 2rem !important;
+}
+.navbar .navbar-toggler-icon {
+  content: unset !important;
+}
+.navbar .dropdown.show:not(.account-menu) {
+  background: white;
+}
+.navbar .dropdown.show:not(.account-menu) a {
+  color: black !important;
+  text-shadow: none !important;
+}
+.navbar .dropdown-menu {
+  background: white;
+  box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.5);
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+}
+.navbar .dropdown-item {
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 1rem 1.5rem;
+}
+@media (max-width: 1500px) {
+  .navbar .dropdown-item {
+    font-size: 0.85rem;
+  }
+}
+@media (max-width: 1400px) {
+  .navbar .dropdown-item {
+    font-size: 0.7rem;
+  }
+}
+@media (max-width: 1200px) {
+  .navbar .dropdown-item {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 767px) {
+  .navbar .dropdown-item {
+    font-size: 1rem;
+  }
+}
+.navbar .dropdown-toggle::after {
+  display: none;
+}
+@media (min-width: 1200px) {
+  .navbar #navItemsDiv {
+    flex-basis: 60%;
+  }
+}
+.account-menu .btn.btn-transparent:hover,
+.account-menu .btn.btn-transparent:active,
+.account-menu .btn.btn-transparent:focus {
+  background: white !important;
+}
+.account-menu .small-account {
+  border-radius: 50%;
+  font-family: 'Montserrat', sans-serif;
+  padding: 0 !important;
+  width: 50px !important;
+  height: 50px !important;
+  font-size: 1.5rem !important;
+  color: white !important;
+  text-align: center !important;
+  font-weight: 500;
+}
+.account-menu .small-account:after {
+  content: '' !important;
+  display: none !important;
+}
+.modal-dialog {
+  max-width: 600px;
+  border-radius: 15px;
+}
+.modal-content {
+  max-height: calc(100vh - 1em);
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-radius: 15px;
+  border: none;
+  background-color: transparent;
+}
+.modal-content .btn-primary {
+  background: linear-gradient(#b91c08, #621208);
+  border: none;
+  padding: 0.2em 1.2em;
+}
+.modal-content .modal-header {
+  background: linear-gradient(#b91c08, #621208);
+  border-radius: 15px 15px 0px 0px;
+}
+.modal-content .modal-header #text {
+  display: none;
+}
+.modal-content .modal-header .modal-title {
+  color: #fff;
+  margin: 0 auto;
+  position: relative;
+}
+.modal-content .modal-header .modal-title .modal-main-title {
+  font-weight: 700;
+  font-size: 2em;
+  font-family: 'Montserrat', sans-serif;
+}
+.modal-content .modal-header .modal-title .modal-subtitle {
+  font-size: 0.85em;
+}
+.modal-content .modal-body {
+  background-color: #fff;
+  background-image: url(/img/redgirl-crop-Xflipped.svg), url(/img/background-curve-plus-bar.svg);
+  background-repeat: no-repeat;
+  background-size: 15%, 110%;
+  background-position-y: bottom, 144%;
+  background-position-x: 95%, 14%;
+  min-height: 20em;
+}
+.modal-content .modal-body .login-guts .btn.signin {
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
+}
+.modal-content .modal-body .login-guts #loginByEmail .btn:hover {
+  color: black;
+}
+.modal-content .modal-body .login-guts #loginByEmail a:hover {
+  color: #b91c08;
+}
+.modal-content .modal-body .social-signin p {
+  max-width: 80%;
+  font-size: 0.8em;
+}
+.modal-content img {
+  display: none;
+}
+.modal-content .close {
+  position: absolute;
+  right: 0.4em;
+  top: 0.2em;
+  text-shadow: none;
+}
+@media (max-width: 767px) {
+  .modal-content .modal-body {
+    background-image: none;
+  }
+  .modal-content .modal-main-title {
+    font-size: 1.5em !important;
+  }
+  .modal-content .modal-subtitle {
+    font-size: 0.65em !important;
+  }
+}
+#charity-picker {
+  background-color: #830000;
+  padding: 1em 0;
+  /* clears the 'X' from Chrome */
+}
+#charity-picker .charity-picker-inner {
+  border-radius: 45px;
+  background-color: white;
+  border: 1px solid transparent;
+  padding-bottom: 5px;
+}
+#charity-picker .charity-picker-header {
+  background-color: #830000;
+  color: #fff;
+  border-radius: 35px;
+  margin: 10px -5px;
+  text-align: start;
+  padding: 1em 2em 0.1em 2em;
+}
+#charity-picker .search-bar,
+#charity-picker .search-results {
+  margin: 0.5em 1em;
+  border-radius: 5px;
+  padding: 0.5em;
+}
+#charity-picker .search-bar {
+  background-color: #830000;
+}
+#charity-picker .search-results {
+  background-color: #eeeaea;
+  text-align: left;
+}
+#charity-picker .search-results > p {
+  text-align: left;
+  margin-bottom: 0;
+  color: #830000;
+}
+#charity-picker .search-input-container {
+  position: relative;
+  width: 100%;
+}
+#charity-picker input[type="search"]::-webkit-search-decoration,
+#charity-picker input[type="search"]::-webkit-search-cancel-button,
+#charity-picker input[type="search"]::-webkit-search-results-button,
+#charity-picker input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
+#charity-picker .search-input {
+  width: 100%;
+}
+#charity-picker .search-icon {
+  position: absolute;
+  right: 0.5em;
+  top: 50%;
+  transform: translateY(-50%);
+}
+#charity-picker .saved-charities .charity-card {
+  margin: 0.5em 1em;
+}
+#charity-picker .charity-card {
+  display: flex;
+  border-radius: 5px;
+  margin: 0.5em 0;
+  background-color: #eeeaea;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+#charity-picker .charity-card.favourite {
+  background-color: #15D2A7;
+}
+#charity-picker .charity-card .logo-div {
+  background-color: #fff;
+  margin: 0.5em;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 7em;
+  width: 33%;
+}
+#charity-picker .charity-card .logo-div > p {
+  font-size: 1.2em;
+  font-weight: 600;
+  max-width: 80%;
+}
+#charity-picker .charity-card .logo-div .charity-card-logo {
+  max-height: 6em;
+  max-width: 11em;
+  margin: 0 auto;
+  align-self: center;
+}
+@media (max-width: 767px) {
+  #charity-picker .charity-card .logo-div .charity-card-logo {
+    max-width: 100%;
+  }
+}
+#charity-picker .charity-card .info-div {
+  width: 66%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+  padding: 1em 0.5em 0.5em 0.5em;
+}
+#charity-picker .charity-card .info-div > * {
+  text-decoration: none;
+}
+#charity-picker .charity-card .info-div .charity-card-name {
+  font-weight: 700;
+  color: #830000;
+}
+#charity-picker .charity-card .save-remove-btn,
+#charity-picker .charity-card .picker-login-btn {
+  text-align: center;
+  align-self: flex-end;
+  width: 80%;
+  border-radius: 5px;
+  background-color: #830000;
+  color: white;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  user-select: none;
+}
+#charity-picker .charity-card .save-remove-btn:hover,
+#charity-picker .charity-card .picker-login-btn:hover {
+  cursor: pointer;
+  background-color: #9b0000;
+}
+@media (max-width: 767px) {
+  #charity-picker .charity-card {
+    flex-direction: column;
+  }
+  #charity-picker .charity-card .logo-div {
+    width: 90%;
+    margin: 0.5em auto;
+  }
+  #charity-picker .charity-card .info-div {
+    width: 100%;
+  }
+  #charity-picker .charity-card .info-div .picker-save-btn,
+  #charity-picker .charity-card .info-div .picker-remove-btn,
+  #charity-picker .charity-card .info-div .picker-login-btn {
+    align-self: center;
+  }
+}
+.search-input:active,
+.search-input:focus {
+  outline: none!important;
+  border: none!important;
+  box-shadow: none!important;
+}
+.charity-card-wrapper {
+  background-color: #fff;
+  padding: 0.3em 0.5em;
+  border-radius: 5px;
+  max-height: 25em;
+  overflow: auto;
+}
+/*
+
+TODO: CSS Clean-Up to be more modular and robust
+
+Redefining font stuff (font family or size) or basic tags (e.g. h1,h2,p,a) for a specific section is usually a mistake, 
+as it leads to inconsistent styling + harder to maintain css.
+
+For the css below that deals in font/text matters:
+ - Can we remove this?
+ - ...If not, should it be promoted to a general rule?
+ - ...If not, add a comment
+
+*/
+@keyframes scroll-arrow-nudge {
+  from {
+    bottom: 50%;
+    opacity: 0;
+  }
+  to {
+    bottom: 5%;
+    opacity: 1;
+  }
+}
+.landing-bg {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+}
+@media (max-width: 767px) {
+  .landing-bg .share-btn {
+    bottom: 100px !important;
+    left: 50% !important;
+    transform: translateX(-50%);
+    z-index: 999;
+  }
+}
+.landing-bg .btn-newsletter {
+  color: #af2009;
+  border: 3px solid #af2009;
+}
+.landing-bg .btn-newsletter:hover:not(.disabled) {
+  color: #e82316 !important;
+  border: 3px solid #e82316 !important;
+}
+.landing-bg .title {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  color: black;
+}
+.landing-bg .title h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: normal;
+  font-size: 2.5rem;
+  /* text-shadow: 0px 1px 3px black; */
+  margin-bottom: 1.3rem;
+}
+@media (max-width: 767px) {
+  .landing-bg .title h1 {
+    font-size: 2rem;
+  }
+}
+.landing-bg .title p {
+  font-size: 1.5rem;
+  /* text-shadow: 0px 3px 6px rgba(0,0,0,0.5); */
+  font-family: 'Montserrat', sans-serif;
+}
+@media (max-width: 767px) {
+  .landing-bg .title p {
+    font-size: 1.2rem;
+  }
+}
+.landing-bg .scroll-down-button {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  opacity: 0;
+  bottom: 50%;
+  filter: drop-shadow(1px 1px 2px black);
+  z-index: 999;
+  transition: 0.2s;
+  animation-name: scroll-arrow-nudge;
+  animation-delay: 2s;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+.landing-bg .scroll-down-button:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  transition: 0.2s;
+}
+@media screen and (max-height: 529px) {
+  .landing-bg .scroll-down-button {
+    bottom: 2%;
+    width: 45px;
+  }
+}
+.WhiteCircle {
+  position: relative;
+  background: white;
+  border-radius: 50%;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+.WhiteCircle .content {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.WhiteCircle .content img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.WhiteCircle .content a {
+  max-width: 100%;
+  max-height: 100%;
+}
+.WhiteCircle:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+.share-popup {
+  position: absolute;
+  left: 105%;
+  top: 0;
+  z-index: 5;
+  width: 200px;
+}
+@media (max-width: 767px) {
+  .share-popup {
+    top: 105%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .share-popup .bubble {
+    transform: scaleX(-1);
+  }
+}
+.share-popup .popup-btns {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 5px;
+  padding-left: 20px;
+  z-index: 6;
+}
+@media (max-width: 767px) {
+  .share-popup .popup-btns {
+    padding-left: 5px;
+    padding-right: 20px;
+  }
+}
+.dev-link {
+  background-color: #ffd3ba;
+  border-radius: 10px;
+  display: inline-flex;
+  margin: 20px 0px;
+  box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.2);
+  text-decoration: none !important;
+  align-self: start;
+}
+.dev-link .dev-label {
+  background-color: #ffad14;
+  border-right: 1px solid black;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+}
+.dev-link .dev-label,
+.dev-link .dev-text {
+  padding: 5px 10px;
+}
+.btn {
+  border-radius: 100px;
+  vertical-align: middle;
+  padding: 15px 40px;
+  box-shadow: none !important;
+  font-weight: bold;
+  font-family: 'Montserrat';
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.btn p {
+  margin: 0 !important;
+}
+@media (max-width: 767px) {
+  .btn {
+    padding: 10px 40px;
+    font-size: 0.7rem;
+  }
+}
+@media (max-width: 767px) and (max-height: 568px) {
+  .btn {
+    padding: 10px 20px;
+  }
+}
+.btn.thin {
+  padding: 5px 40px;
+}
+.btn.disabled {
+  cursor: default;
+}
+.btn-primary {
+  background-color: #af2009 !important;
+  color: white !important;
+  border: none !important;
+}
+.btn-primary:hover:not(.disabled) {
+  background-color: #e82316 !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+.btn-primary:active:not(.disabled),
+.btn-primary:focus:not(.disabled) {
+  background-color: #770f00 !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+.btn-outline-primary {
+  border-color: #af2009;
+  color: #af2009;
+}
+.btn-outline-primary:hover:not(.disabled) {
+  border-color: #af2009;
+  background-color: #770f00;
+  color: white;
+}
+.btn-secondary {
+  background-color: white;
+  color: black !important;
+  mix-blend-mode: screen;
+  border: none !important;
+}
+.btn-secondary:hover:not(.disabled) {
+  background-color: #e82316 !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+.btn-secondary:active:not(.disabled),
+.btn-secondary:focus:not(.disabled) {
+  background-color: #770f00 !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+.btn-transparent {
+  background-color: transparent;
+  color: #af2009 !important;
+  padding: 13px 38px;
+  border: solid 2px #af2009 !important;
+}
+@media (max-width: 767px) {
+  .btn-transparent {
+    padding: 8px 38px;
+  }
+}
+@media (max-width: 767px) and (max-height: 568px) {
+  .btn-transparent {
+    padding: 8px 18px;
+  }
+}
+.btn-transparent.thin {
+  padding: 3px 38px;
+}
+.btn-transparent.btn-white {
+  color: white !important;
+  border-color: white !important;
+}
+.btn-transparent.fill {
+  background: white !important;
+}
+.btn-transparent:hover:not(.disabled) {
+  color: #e82316 !important;
+  box-shadow: none !important;
+  border: solid 2px #e82316 !important;
+}
+.btn-transparent:active:not(.disabled),
+.btn-transparent:focus:not(.disabled) {
+  color: #770f00 !important;
+  box-shadow: none !important;
+  border: solid 2px #770f00 !important;
+}
+/*
+.btn-transparent-white {
+    background-color: transparent;
+    color: white !important;
+    padding: 13px 38px; // Account for border
+    @media @width-mobile {
+        padding: 8px 38px;
+        @media (max-height: 568px) {
+            padding: 8px 18px;
+        }
+    }
+    border: solid 2px white !important;
+}
+
+.btn-transparent-white:hover:not(.disabled) {
+    color: @gl-orange !important;
+    box-shadow: none !important;
+    border: solid 2px @gl-orange !important;
+}
+
+// TODO: btn-secondary:focus not working??
+.btn-transparent-white:active:not(.disabled),
+.btn-transparent-white:focus:not(.disabled) {
+    color: @gl-red!important;
+    box-shadow: none !important;
+    border: solid 2px @gl-red !important;
+}*/
+.color-gl-light-pink {
+  color: #FEF5F4 !important;
+}
+.color-gl-light-pink h1 > a,
+.color-gl-light-pink h2 > a,
+.color-gl-light-pink h3 > a,
+.color-gl-light-pink h4 > a,
+.color-gl-light-pink h5 > a {
+  color: #FEF5F4 !important;
+}
+.color-gl-light-red {
+  color: #af2009 !important;
+}
+.color-gl-light-red h1 > a,
+.color-gl-light-red h2 > a,
+.color-gl-light-red h3 > a,
+.color-gl-light-red h4 > a,
+.color-gl-light-red h5 > a {
+  color: #af2009 !important;
+}
+.color-gl-turquoise {
+  color: #51B6AA !important;
+}
+.color-gl-turquoise h1 > a,
+.color-gl-turquoise h2 > a,
+.color-gl-turquoise h3 > a,
+.color-gl-turquoise h4 > a,
+.color-gl-turquoise h5 > a {
+  color: #51B6AA !important;
+}
+.color-gl-blue {
+  color: #1894DA !important;
+}
+.color-gl-blue h1 > a,
+.color-gl-blue h2 > a,
+.color-gl-blue h3 > a,
+.color-gl-blue h4 > a,
+.color-gl-blue h5 > a {
+  color: #1894DA !important;
+}
+.bg-gl-light-pink {
+  background-color: #FEF5F4 !important;
+}
+.bg-gl-light-red {
+  background-color: #af2009 !important;
+}
+.bg-gl-default {
+  background-color: #f4f3f1 !important;
+}
+.bg-gl-light-blue {
+  background-color: #5ca5c0 !important;
+}
+.bg-gl-pink {
+  background-color: #FBE1DE !important;
+}
+.bg-gl-orange {
+  background-color: #af2009 !important;
+}
+.bg-gl-turquoise {
+  background-color: #51B6AA !important;
+}
+.bg-gl-blue {
+  background-color: #1894DA !important;
+}
+.landingpage h1,
+.landingpage h2,
+.landingpage h3,
+.landingpage h4 {
+  color: #af2009;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.landingpage .logo-header {
+  font-weight: 800;
+  font-family: 'Montserrat', sans-serif;
+}
+.landingpage p {
+  font-size: 1.3rem;
+}
+.landingpage .pageslice {
+  padding-top: 5em;
+  padding-bottom: 5em;
+  min-height: 50vh;
+}
+.landingpage .large-fade-right {
+  position: absolute;
+  left: 0;
+  width: 50vw;
+}
+.landingpage .large-fade-left {
+  position: absolute;
+  right: 0;
+  width: 50vw;
+}
+.landingpage .splash-card {
+  height: 100vh;
+  /* let's show there's more below */
+  background-image: url('/img/TabsForGood/Onboarding.png');
+  background-size: cover;
+  background-position: center center;
+  opacity: 0.9;
+  inset: 0px;
+  color: white;
+}
+.landingpage .splash-card h1,
+.landingpage .splash-card h2,
+.landingpage .splash-card h3,
+.landingpage .splash-card h4 {
+  text-shadow: 3px 3px 6px #000000c0;
+  font-weight: 600;
+  color: white;
+}
+.landingpage .splash-card .content {
+  position: relative;
+  z-index: 2;
+}
+.landingpage .slice-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.landingpage .hover-expand {
+  transform: scale(1, 1);
+  transition: 0.2s;
+}
+.landingpage .hover-expand:hover {
+  transform: scale(1.5, 1.5);
+  transition: 0.2s;
+}
+.landingpage footer {
+  /* do we have a colour name for footer grey?? */
+  background-color: #333;
+}
+.landingpage footer a {
+  color: white;
+  text-decoration: none;
+}
+footer {
+  font-family: "Tajawal", sans-serif;
+  background-color: #343a40;
+  color: #f8f9fa;
+}
+footer a {
+  color: white;
+}
+footer a:hover {
+  color: white !important;
+}
+footer h5 {
+  text-transform: uppercase;
+  font-family: 'Montserrat';
+  font-weight: bold;
+}
+footer .btn {
+  font-family: 'Montserrat';
+}
+footer hr {
+  color: white;
+  background-color: white;
+  margin: 50px 0px;
+}
+footer .flex-column > * {
+  margin: 0;
+}
+@media (min-width: 767px) {
+  footer .footer-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+}
+/*
+
+TODO: CSS Clean-Up -- promote / delete / comment wanted on much of the code below:
+Where and why are these used?
+
+*/
+.header {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 2.618rem;
+  line-height: initial;
+}
+.sub-header {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 1.618rem;
+}
+.text-block {
+  text-align: left;
+  line-height: 1.25rem;
+  max-width: 35rem;
+}
+.compact-text-block {
+  text-align: left;
+  line-height: 1.25rem;
+  max-width: 35rem;
+  line-height: initial;
+  max-width: 20rem;
+}
+.img-block-basic {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.img-block {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.img-hero {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  filter: blur(5px);
+  background-attachment: fixed;
+}
+a {
+  color: #000;
+  text-decoration: underline;
+}
+a.btn {
+  text-decoration: none;
+}
+.word-wrap {
+  /* c.f. https://stackoverflow.com/posts/40442295/revisions */
+  overflow-wrap: break-word;
+}
+@media (min-width: 576px) {
+  .modal .modal-dialog {
+    max-width: 700px;
+  }
+}
+.social-media-card {
+  display: inline-flex;
+  flex-direction: column;
+}
+.social-media-card .tagline {
+  color: white;
+  text-shadow: 0.05em 0.05em 0.1em rgba(1, 1, 1, 0.5);
+  line-height: 1;
+  font-size: 90%;
+}
+.social-media-card .btn {
+  font-size: 1rem;
+}
+.social-media-card .btn,
+.social-media-card .social-connected {
+  line-height: 1;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  text-align: left;
+}
+.social-media-card > * {
+  margin-left: unset !important;
+  margin-right: unset !important;
+}
+.social-connected {
+  display: flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.25em;
+}
+.social-connected .user-pic {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  height: 2em;
+  width: 2em;
+  border-radius: 0.1em;
+}
+.social-connected .user-pic > * {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}
+.social-connected .connected {
+  font-size: 66%;
+}
+.social-connected .connected,
+.social-connected .name {
+  line-height: 1;
+}
+.login-menu .btn,
+.login-menu.btn {
+  font-weight: 600;
+  padding: 10px;
+  mix-blend-mode: normal;
+}
+.login-menu .btn a,
+.login-menu.btn a {
+  color: #af2009;
+  text-decoration: none;
+}
+.login-menu .btn:hover:not(.disabled),
+.login-menu.btn:hover:not(.disabled) {
+  background-color: white !important;
+}
+.login-menu .btn:focus:not(.disabled),
+.login-menu.btn:focus:not(.disabled) {
+  background-color: white !important;
+}
+.logo-base {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100%;
+}
+.round-logo {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100%;
+  border: 1px solid grey;
+  border-radius: 50%;
+  background-color: #fff;
+  height: 5rem;
+  width: 5rem;
+}
+.unset-margins > *:not([class*="m-"]) {
+  margin: unset;
+}
+/** Make sure the text is readable when using images as a backdrop. 
+
+NB: to handle the ugly corner case of dynamic colours, we use a flexible grey shadow.
+This issue appears on http://testmy.good-loop.com/#campaign/?gl.vert=CeuNVbtW where the £16k is dynamically black
+*/
+.contrast-text {
+  text-shadow: 0.05em 0.05em 0.1em rgba(1, 1, 1, 0.5);
+}
+@media (max-width: 466px) {
+  html,
+  body {
+    font-size: 14px;
+  }
+}
+@media (max-width: 800px) {
+  html,
+  body {
+    font-size: 16px;
+  }
+}
+@media (min-width: 800px) {
+  html,
+  body {
+    font-size: 18px;
+  }
+}
+b {
+  font-weight: bold;
+}
+
+
+/*# sourceMappingURL=main.css.map*/
