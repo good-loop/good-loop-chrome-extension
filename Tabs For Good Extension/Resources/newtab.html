@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Good-Loop: Tabs-for-Good</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            width: 100%;
+            height: 100%;
+            background: 0 0
+        }
+
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            min-height: 100%;
+            margin: 0;
+            padding: 0;
+            border: none
+        }
+
+        .serverControls {
+            position:absolute;
+            z-index: 1;
+            top: 10;
+            left: 10;
+            padding: 20px;
+            box-shadow: 2px 2px 4px rgba(0,0,0,0.75);
+            background-color: white;
+            transform: translateX(-95%);
+            transition: 0.2s;
+        }
+
+        .serverControls:hover {
+            transform: translateX(0);
+            transition: 0.2s;
+        }
+    </style>
+</head>
+<body>
+    <div id="bg" style="position: absolute; top:0; left:0; right:0; bottom: 0;"></div>
+    <iframe id='tab'
+        src="http://localmy.good-loop.com/newtab.html"
+        class="iframe" sandbox="allow-forms allow-scripts allow-top-navigation allow-same-origin allow-popups" allowtransparency="true"
+    ></iframe>
+    <!-- div class="serverControls">
+        Server:
+        <select id="serverToggle" onchange="reloadTab()">
+            <option value="prod">Prod</option>
+            <option value="test">Test</option>
+            <option value="local">Local</option>
+        </select>
+    </div -->
+    <!-- script src='newtab.js'></script -->
+    <script src="bgselect.js"></script>
+    <script src="storage.js"></script>
+</body>
+</html>

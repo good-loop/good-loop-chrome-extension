@@ -1,0 +1,25 @@
+{
+    "manifest_version": 2,
+    "default_locale": "en",
+
+    "name": "__MSG_extension_name__",
+    "description": "__MSG_extension_description__",
+    "version": "0.2.4",
+
+    "icons": {
+        "64": "images/logo.64.png",
+        "128": "images/logo.128.png",
+        "160": "images/logo.160.png",
+        "256": "images/logo.256.png",
+        "512": "images/logo.512.png",
+        "1024": "images/logo.1024.png"
+    },
+    
+    "chrome_url_overrides" : {
+        "newtab": "newtab.html"
+    },
+
+    "permissions": [
+        "storage"
+    ]
+}

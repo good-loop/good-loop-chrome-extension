@@ -1,0 +1,10 @@
+{
+    "extension_name": {
+        "message": "Good-Loop: Tabs for Good",
+        "description": "The display name for the extension."
+    },
+    "extension_description": {
+        "message": "Raise money for charity while using the web! This is the Alpha version with the latest features. Thank you for helping us test it.",
+        "description": "Description of what the extension does."
+    }
+}
