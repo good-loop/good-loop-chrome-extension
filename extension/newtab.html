@@ -24,39 +24,44 @@
 			border: none
 		}
 
-		.serverControls {
-			position:absolute;
-			z-index: 1;
-			top: 10;
-			left: 10;
-			padding: 20px;
-			box-shadow: 2px 2px 4px rgba(0,0,0,0.75);
-			background-color: white;
-			transform: translateX(-95%);
-			transition: 0.2s;
+		.popup {
+			display: none;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			background: white;
+			border-radius: 20px;
+			box-shadow: 0 0 5px #333333;
+			text-align: center;
 		}
 
-		.serverControls:hover {
-			transform: translateX(0);
-			transition: 0.2s;
+		.popup.show {
+			display: inline-block;
 		}
+
+		#no-internet {
+			padding: 20px;
+			padding-bottom: 40px;
+		}
+
+		#loading {
+			padding: 10px;
+		}
+
 	</style>
+	<script src="setup-iframe.js"></script>
 </head>
 <body>
 	<div id="bg" style="position: absolute; top:0; left:0; right:0; bottom: 0;"></div>
-	<iframe id='tab'
-		src="http://my.good-loop.com/newtab.html"
-		class="iframe" sandbox="allow-forms allow-scripts allow-top-navigation allow-same-origin allow-popups" allowtransparency="true"
-	></iframe>
-	<!-- div class="serverControls">
-		Server:
-		<select id="serverToggle" onchange="reloadTab()">
-			<option value="prod">Prod</option>
-			<option value="test">Test</option>
-			<option value="local">Local</option>
-		</select>
-	</div -->
-	<!-- script src='newtab.js'></script -->
+	<div id="loading" class="popup show">
+		<p>Loading...</p>
+	</div>
+	<div id="no-internet" class="popup">
+		<h1>We can't find the internet :(</h1>
+		<p>We couldn't load your Tabs-for-Good page. Check your connection.</p>
+		<small>If your internet is working, contact help@good-loop.com!</small>
+	</div>
 	<script src="bgselect.js"></script>
 </body>
 </html>
