@@ -3,10 +3,11 @@
  
 	"name": "Good-Loop: Tabs for Good",
 	"description": "Raise money for your favourite charity by simply browsing the web!",
-	"version": "0.2.3",
+	"version": "0.2.4",
 
 	"icons": {
-		"64": "img/logo.64.png"
+		"64": "img/logo.64.png",
+		"128": "img/logo.128.png"
 	},
 
 	"incognito":"not_allowed",
