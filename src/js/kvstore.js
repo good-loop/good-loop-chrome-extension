@@ -56,3 +56,5 @@ kvstore.setupDefaults = () => {
 };
 
 kvstore.setupDefaults();
+
+export default kvstore;

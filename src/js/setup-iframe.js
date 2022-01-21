@@ -1,4 +1,6 @@
 
+import kvstore from './kvstore'; 
+
 // Timeout setting to determine no internet
 const iframeTimeout = 10000;
 
