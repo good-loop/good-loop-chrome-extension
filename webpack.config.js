@@ -7,10 +7,25 @@
 const webpack = require('webpack');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// Needed to check hostname & try to load local config file
+const os = require('os');
+const fs = require('fs');
+// Needed IF you want to run git commands & get current branch
+// const { execSync } = require('child_process');
 
 const webDir = process.env.OUTPUT_WEB_DIR || 'extension';
 
+// Check for file "config/$HOSTNAME.js" and look for ServerIO overrides in it
+let SERVERIO_OVERRIDES = JSON.stringify({});
+const configFile = './config/' + os.hostname() + '.js';
+if (fs.existsSync(configFile)) {
+	/* eslint-disable-next-line global-require, import/no-dynamic-require */
+	let hostConfig = require(configFile);
+	if (hostConfig.ServerIOOverrides) SERVERIO_OVERRIDES = JSON.stringify(hostConfig.ServerIOOverrides);
+}
+
 const baseConfig = {
+	// NB When editing keep the "our code" entry point last in this list - makeConfig override depends on this position.
 	entry: ['@babel/polyfill'], //'./src/js/contentscript.js'], No contentscript needed for T4G
 	output: {
 		path: path.resolve(__dirname, './' + webDir + '/build/'), // NB: this should include js and css outputs
@@ -45,7 +60,7 @@ const baseConfig = {
 				exclude: /node_modules/,
 				options: {
 					presets: [
-						['@babel/preset-env', { targets: { ie: "11" }, loose: true }]
+						['@babel/preset-env', { targets: { ie: '11' }, loose: true }]
 					],
 					plugins: [
 						'@babel/plugin-proposal-class-properties',
@@ -54,39 +69,59 @@ const baseConfig = {
 				}
 			}, {
 				test: /\.less$/,
-				use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader'],
+				// If we use css-loader with default options it will try to inline any url('/img/whatever.png') rules it finds.
+				// We don't want this (plus the URLs don't resolve correctly, throwing an error on compile) so {url: false} disables it.
+				use: [MiniCssExtractPlugin.loader, {loader: 'css-loader', options: {url: false}}, 'less-loader'],
 			}
 		],
 	},
-	plugins: [new MiniCssExtractPlugin({ filename: 'style/main.css' })]
+	plugins: [
+		new MiniCssExtractPlugin({ filename: 'style/main.css' }),
+		new webpack.DefinePlugin({
+			'process.env': { SERVERIO_OVERRIDES },
+		}),
+	]
 };
 
 
-/*
-* Copy and fill out the baseConfig object with
-* @param filename {!String} Set the bundle output.filename
-* 
-* ## process.env 
+/**
+* Copy and fill out the baseConfig object with:
+* @param {!string} filename Set the bundle output.filename
+* @param {?string} mode "production" or "development", determines if JS will be minified
+* @param {?string} entry (unusual) Compile a different entry-point file instead of app.jsx
+* ## process.env
 * process is always globally available to runtime code.
 */
-const makeConfig = ({ filename, mode }) => {
-	// config.mode can be "development" or "production" & dictates whether JS is minified
-	const config = Object.assign({}, baseConfig, { mode });
-	
-	// What filename should we render to?
-	config.output = Object.assign({}, config.output, { filename });
+const makeConfig = ({ filename, mode, entry }) => {
+	const config = { ...baseConfig, mode };
+	config.output = { ...baseConfig.output, filename };
 
-	// The "mode" param should be inserting process.env already...
-	// process.env is available globally within bundle.js & allows us to hardcode different behaviour for dev & production builds	
+	// Has an entry point other than ./src/js/app.jsx been requested?
+	if (entry) config.entry = [...config.entry.slice(0, -1), entry]; // Copy, don't modify in-place
+
 	return config;
 };
 
 const configs = [
 	makeConfig({filename: 'js/bundle-debug.js', mode: 'development' }),
+	makeConfig({entry:'./src/js/setup-iframe.js', filename: 'js/bundle-setup-iframe-debug.js', mode: 'development' }),
+//	Add additional configs (eg with different entry points) like this:
+//	makeConfig({filename: 'js/other-bundle-debug.js', mode: 'development', entry:'./src/js/other.js'}),
 ];
+
+// Default behaviour: Create a production config (with mode & output filename amended) for each dev config.
 // Allow debug-only compilation for faster iteration in dev
 if (process.env.NO_PROD !== 'true') {
-	configs.push(makeConfig({filename: 'js/bundle.js', mode: 'production' }));
+	const prodconfigs = configs.map(devc => ({
+		...devc,
+		mode: 'production',
+		output: {
+			...devc.output,
+			filename: devc.output.filename.replace('-debug', '')
+		}
+	}));
+	// Put new production configs in the main list
+	prodconfigs.forEach(prodc => configs.push(prodc));
 }
 
 // Output bundle files for production and dev/debug

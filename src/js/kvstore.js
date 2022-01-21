@@ -3,11 +3,16 @@ const kvstore = {};
 window.kvstore = kvstore;
 
 const DEFAULTS = {
-	// TODO: Reset to test for production
-	tabUrl: "https://my.good-loop.com/newtab.html",
-	serverType: "production",
+	serverType: "production", // Change this during dev, but always reset to "production"
 	cmp: true
 };
+
+DEFAULTS.tabUrl = {
+	production: "https://my.good-loop.com/newtab.html",
+	test: "https://testmy.good-loop.com/newtab.html",
+	local: "http://localmy.good-loop.com/newtab.html"
+}[DEFAULTS.serverType];
+
 
 /**
  * 
@@ -51,3 +56,5 @@ kvstore.setupDefaults = () => {
 };
 
 kvstore.setupDefaults();
+
+export default kvstore;

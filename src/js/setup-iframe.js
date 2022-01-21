@@ -1,4 +1,6 @@
 
+import kvstore from './kvstore'; 
+
 // Timeout setting to determine no internet
 const iframeTimeout = 10000;
 
@@ -15,6 +17,8 @@ window.addEventListener("message", event => {
     }
 });
 
+const tabUrl = kvstore.get("tabUrl") || "https://my.good-loop.com/newtab.html";
+
 // Inject iframe after bg element
 document.addEventListener("DOMContentLoaded", e => {
     const iframe = document.createElement('iframe');
@@ -22,7 +26,8 @@ document.addEventListener("DOMContentLoaded", e => {
     iframe.setAttribute('class', 'iframe');
     iframe.setAttribute('sandbox', "allow-forms allow-scripts allow-top-navigation allow-same-origin allow-popups");
     iframe.setAttribute('allowtransparency', 'true');
-    iframe.setAttribute('src', "http://localmy.good-loop.com/newtab.html");
+    // url
+    iframe.setAttribute('src', tabUrl);
 
     const loadingPopup = document.getElementById('loading');
     const offlinePopup = document.getElementById('no-internet');
