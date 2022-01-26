@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", e => {
     iframe.setAttribute('class', 'iframe');
     iframe.setAttribute('sandbox', "allow-forms allow-scripts allow-top-navigation allow-same-origin allow-popups");
     iframe.setAttribute('allowtransparency', 'true');
-    iframe.setAttribute('src', "http://localmy.good-loop.com/newtab.html");
+    iframe.setAttribute('src', "http://my.good-loop.com/newtab.html");
 
     const loadingPopup = document.getElementById('loading');
     const offlinePopup = document.getElementById('no-internet');
