@@ -16,6 +16,11 @@
 		"newtab": "newtab.html"
 	},
 
+	"permissions": [
+        "storage",
+        "downloads"
+    ],
+
 	"optional_permissions": [
 	]
 

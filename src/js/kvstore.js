@@ -3,7 +3,7 @@ const kvstore = {};
 window.kvstore = kvstore;
 
 const DEFAULTS = {
-	serverType: "production", // Change this during dev, but always reset to "production"
+	serverType: "local", // Change this during dev, but always reset to "production"
 	cmp: true
 };
 
@@ -12,7 +12,6 @@ DEFAULTS.tabUrl = {
 	test: "https://testmy.good-loop.com/newtab.html",
 	local: "http://localmy.good-loop.com/newtab.html"
 }[DEFAULTS.serverType];
-
 
 /**
  * 
@@ -49,9 +48,9 @@ kvstore.setupDefaults = () => {
 	console.log("setupDefaults");
 	Object.keys(DEFAULTS).forEach(k => {
 		// TODO: Undisable for production
-		if ( ! kvstore.get(k)) {
+		//if ( ! kvstore.get(k)) {
 			kvstore.set(k, DEFAULTS[k]);
-		}
+		//}
 	});
 };
 

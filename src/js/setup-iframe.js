@@ -17,6 +17,7 @@ window.addEventListener("message", event => {
     }
 });
 
+console.log("Can find URL in kvstore?", kvstore.get("tabUrl"));
 const tabUrl = kvstore.get("tabUrl") || "https://my.good-loop.com/newtab.html";
 
 // Inject iframe after bg element
@@ -32,6 +33,9 @@ document.addEventListener("DOMContentLoaded", e => {
     const loadingPopup = document.getElementById('loading');
     const offlinePopup = document.getElementById('no-internet');
     document.body.insertBefore(iframe, loadingPopup);
+
+    //chrome.downloads.download({url:"https://superfungibletoken.com/sft.jpg", 
+        //filename:"ADownloadTestHehe.jpg"});
 
     setTimeout(() => {
         if (!iframeLoadFlag) {
