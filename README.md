@@ -1,5 +1,7 @@
 # good-loop-chrome-extension
 
+## Chrome
+
 A chrome browser extension for Good-Loop and My-Loop
 
 To install from a local git checkout:
@@ -17,6 +19,15 @@ It should also nobble annoying consent scripts :)
 Publish here: https://chrome.google.com/webstore/devconsole/
 
 Using this info: https://docs.google.com/document/d/1xtsh4ukGgKZ9MAliNY3CAdLVa-SBSLN_TS6BjnRL1Fo
+
+
+## Edge
+
+Uses the same code -- just needs to be uploaded separately to M$ by Daniel.
+
+## Safari
+
+Uses separate code in the `Tabs For Good Extension` folder.
 
 ## Future Work
 
