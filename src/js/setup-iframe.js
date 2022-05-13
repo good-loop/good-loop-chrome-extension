@@ -1,6 +1,9 @@
 
 import kvstore from './kvstore'; 
 
+// For bookmarks API
+const browser = chrome;
+
 // Timeout setting to determine no internet
 const iframeTimeout = 10000;
 
@@ -11,9 +14,17 @@ window.addEventListener("message", event => {
     if (event.origin.includes('my.good-loop.com')
         && event.data === "iframeLoaded") {
         iframeLoadFlag = true;
+        // console.log("iframeLoaded");
         // Hide all popups
         document.getElementById('loading').classList.remove('show');
         document.getElementById('no-internet').classList.remove('show');
+
+    } else if (event.origin.includes('my.good-loop.com')
+        && event.data === "give-me-bookmarks") {
+            const targetWindow = document.getElementById("tab").contentWindow;
+            browser.bookmarks.getChildren('1', (bookmarksList) => {
+                targetWindow.postMessage(bookmarksList, tabUrl);
+            });
     }
 });
 
