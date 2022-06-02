@@ -17,9 +17,7 @@
 	},
 
 	"permissions": [
-        "storage",
-        "downloads",
-				"bookmarks"
+		"bookmarks"
     ],
 
 	"background": {
