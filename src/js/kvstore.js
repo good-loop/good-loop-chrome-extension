@@ -3,14 +3,14 @@ const kvstore = {};
 window.kvstore = kvstore;
 
 const DEFAULTS = {
-	serverType: "production", // Change this during dev, but always reset to "production"
+	serverType: "local", // Change this during dev, but always reset to "production"
 	cmp: true
 };
 
 DEFAULTS.tabUrl = {
 	production: "https://my.good-loop.com/newtab.html",
 	test: "https://testmy.good-loop.com/newtab.html",
-	local: "http://localmy.good-loop.com/newtab.html"
+	local: "https://localmy.good-loop.com/newtab.html"
 }[DEFAULTS.serverType];
 
 /**
