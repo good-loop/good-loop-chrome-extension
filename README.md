@@ -19,8 +19,10 @@ Publish here: https://chrome.google.com/webstore/devconsole/
 Using this info: https://docs.google.com/document/d/1xtsh4ukGgKZ9MAliNY3CAdLVa-SBSLN_TS6BjnRL1Fo
 
 ## Edge Version
+https://microsoftedge.microsoft.com/addons/detail/goodloop-tabs-for-good/affgfbmpcboljigkpdeamhieippkglkn
 
 Created using login-by-github by Dan W
+Publish here: https://partner.microsoft.com/en-us/dashboard/microsoftedge/ab92e36f-896e-4356-b3b1-9d874276aa44/packages
 
 To build, you may need to run this in the command line:
 
