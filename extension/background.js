@@ -4,5 +4,5 @@ chrome.runtime.setUninstallURL(
 
 // redirect to newtab when extension is installed
 chrome.runtime.onInstalled.addListener(() => {
-  chrome.tabs.create({ url: 'https://my.good-loop.com/newtab.html' + '?utm_source=installation' });
+  chrome.tabs.create({ url: 'https://my.good-loop.com/welcome' + '?utm_source=installation' });
 });
