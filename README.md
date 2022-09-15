@@ -22,6 +22,12 @@ Using this info: https://docs.google.com/document/d/1xtsh4ukGgKZ9MAliNY3CAdLVa-S
 
 Created using login-by-github by Dan W
 
+To build, you may need to run this in the command line:
+
+export NODE_OPTIONS=--openssl-legacy-provider
+
+sudo apt install jq
+
 
 ## Future Work
 
