@@ -1,8 +1,8 @@
 {
-  "name": "G-L_Project_NPM_Skeleton",
-  "version": "0.0.6",
-  "description": "My app",
-  "author": "Daniel Winterstein",
+  "name": "Tabs for Good by Good-Loop",
+  "version": "0.2.0",
+  "description": "Tabs for Good by Good-Loop",
+  "author": "The Good-Loop team",
   "repository": {
     "url": "https://github.com/good-loop/good-loop-chrome-extension",
     "type": "git"
@@ -14,7 +14,7 @@
     "js-cookie": "^2.2.1",
     "lodash": "^4.17.15",
     "md5": "^2.2.1",
-    "promise-value": "^1.2.15",
+    "promise-value": "^1.3.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "reactstrap": "^8.4.1",

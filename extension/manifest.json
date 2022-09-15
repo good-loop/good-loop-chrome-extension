@@ -1,9 +1,9 @@
 {
 	"manifest_version": 2,
  
-	"name": "Good-Loop: Tabs for Good",
+	"name": "Tabs for Good by Good-Loop",
 	"description": "Raise money for your favourite charity by simply browsing the web!",
-	"version": "0.2.7",
+	"version": "0.2.8",
 
 	"icons": {
 		"64": "img/logo.64.png",
