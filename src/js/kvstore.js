@@ -3,7 +3,7 @@ const kvstore = {};
 window.kvstore = kvstore;
 
 const DEFAULTS = {
-	serverType: "local", // Change this during dev, but always reset to "production"
+	serverType: "production", // Change this during dev, but always reset to "production"
 	cmp: true
 };
 
