@@ -28,6 +28,6 @@ if [ "$SERVER_TYPE" != "production" ]; then
     read -p "Press any key to continue"
 fi
 
-# npm run compile && zip -r $OUTPUT_FILENAME extension/
+npm run compile && zip -r $OUTPUT_FILENAME extension/
 
 printf "Build successful.\nPackage location: ${bold}$OUTPUT_FILENAME\n"
