@@ -15,6 +15,7 @@ You can test it by opening a new tab.
 It should also nobble annoying consent scripts :)
 
 Publish here: https://chrome.google.com/webstore/devconsole/
+Login as officer@good-loop.com
 
 Using this info: https://docs.google.com/document/d/1xtsh4ukGgKZ9MAliNY3CAdLVa-SBSLN_TS6BjnRL1Fo
 
