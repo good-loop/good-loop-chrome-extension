@@ -9,8 +9,6 @@
 #
 set -euo pipefail
 
-VERSION=$(grep -oP '"version": "\K([0-9\.]+)' extension/manifest.json)
-OUTPUT_FILENAME="t4g-$VERSION-`date '+%s'`.zip"
 PROJECT_LOCATION_ON_DISK=/home/winterwell/good-loop-chrome-extension
 
 # Pull changes, install dependencies
@@ -22,7 +20,11 @@ npm i
 sed -i -E 's/(serverType: ")([a-z]+)/\1test/' src/js/kvstore.js
 
 # Compile
-npm run compile && zip -r $OUTPUT_FILENAME extension/
+npm run compile
+
+VERSION=$(grep -oP '"version": "\K([0-9\.]+)' extension/manifest.json)
+OUTPUT_FILENAME="t4g-$VERSION-`date '+%s'`.zip"
+zip -r $OUTPUT_FILENAME extension/
 
 # Move zipfile to the webserver root
 mv $OUTPUT_FILENAME $PROJECT_LOCATION_ON_DISK-builds
