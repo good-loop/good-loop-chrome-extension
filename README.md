@@ -2,6 +2,10 @@
 
 A chrome browser extension for Good-Loop and My-Loop
 
+# Test builds
+
+Test builds can be downloaded from: https://t4g-test-builds.good-loop.com/
+
 To install from a local git checkout:
 
 1. `npm i`, `npm run compile` (or `watch.sh`)
@@ -18,6 +22,7 @@ Publish here: https://chrome.google.com/webstore/devconsole/
 Login as officer@good-loop.com
 
 Using this info: https://docs.google.com/document/d/1xtsh4ukGgKZ9MAliNY3CAdLVa-SBSLN_TS6BjnRL1Fo
+
 
 ## Edge Version
 https://microsoftedge.microsoft.com/addons/detail/goodloop-tabs-for-good/affgfbmpcboljigkpdeamhieippkglkn
