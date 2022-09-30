@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from 'react-dom';
-import NewTab from "./newtab";
+import Newtab from "./components/Newtab";
 
 // Import root LESS file so webpack finds & renders it out to main.css
 import '../style/main.less';
 
-ReactDOM.render(<NewTab />, document.getElementById('mainDiv'));
+ReactDOM.render(<Newtab />, document.getElementById('mainDiv'));

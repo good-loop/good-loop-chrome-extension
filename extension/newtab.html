@@ -1,14 +1,25 @@
 <!doctype html>
 <html>
 	<head>
-		<meta charset="utf-8">
-		<title>Tabs-for-Good</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta property="og:image" content="https://my.good-loop.com/img/gl-logo/rectangle/logo.svg" />
+		<meta property="og:title" content="My.Good-Loop" />
+		<meta property="og:description" content="My.Good-Loop raises money for charity from your web browsing." />
+		<!-- Explicit Content-Security-Policy is required for the GoodLoop app -->
+		<meta http-equiv="Content-Security-Policy"
+			content="default-src * gap://ready file:; style-src 'self' 'unsafe-inline' *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; media-src * 'self' data: https: http:; img-src * data: blob: about: 'unsafe-inline'; connect-src * 'unsafe-inline'; frame-src * 'unsafe-inline' 'unsafe-eval';">
+
+		<title>My.Good-Loop</title>
+		<link rel="shortcut icon" href="logo.64.png" />
+		<link href="bootstrap.min.css" rel="stylesheet" />
+		<link href="build/style/main.css" rel="stylesheet" />
 	</head>
 	<body>
 		<div id="mainDiv"></div>
 	</body>
-	<link href="bootstrap.min.css" rel="stylesheet" />
-	<link href="build/style/main.css" rel="stylesheet" />
-	<!-- <script src="build/js/bundle.js"></script> -->
+
+	<script src="build/js/bundle.js"></script>
 	<script src="build/js/bundle-debug.js"></script>
 </html>
