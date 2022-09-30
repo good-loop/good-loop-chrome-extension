@@ -1,66 +1,14 @@
 <!doctype html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<title>Tabs-for-Good</title>
-	<style>
-		body, html {
-			margin: 0;
-			padding: 0;
-			border: 0;
-			width: 100%;
-			height: 100%;
-			background: 0 0
-		}
-
-		iframe {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			min-height: 100%;
-			margin: 0;
-			padding: 0;
-			border: none
-		}
-
-		.popup {
-			display: none;
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			background: white;
-			border-radius: 20px;
-			box-shadow: 0 0 5px #333333;
-			text-align: center;
-		}
-
-		.popup.show {
-			display: inline-block;
-		}
-
-		#no-internet {
-			padding: 20px;
-			padding-bottom: 40px;
-		}
-
-		#loading {
-			padding: 10px;
-		}
-
-	</style>
-	<script src="build/js/bundle-setup-iframe.js"></script>
-</head>
-<body>
-	<div id="bg" style="position: absolute; top:0; left:0; right:0; bottom: 0;"></div>
-	<div id="loading" class="popup show"	>
-		<p>Loading...</p>
-	</div>
-	<div id="no-internet" class="popup">
-		<h1>We can't find the internet :(</h1>
-		<p>We couldn't load your Tabs-for-Good page. Check your connection.</p>
-		<small>If your internet is working, contact support@good-loop.com!</small>
-	</div>
-</body>
+	<head>
+		<meta charset="utf-8">
+		<title>Tabs-for-Good</title>
+	</head>
+	<body>
+		<div id="mainDiv"></div>
+	</body>
+	<link href="bootstrap.min.css" rel="stylesheet" />
+	<link href="build/style/main.css" rel="stylesheet" />
+	<!-- <script src="build/js/bundle.js"></script> -->
+	<script src="build/js/bundle-debug.js"></script>
 </html>

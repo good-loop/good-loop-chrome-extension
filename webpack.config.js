@@ -26,7 +26,7 @@ if (fs.existsSync(configFile)) {
 
 const baseConfig = {
 	// NB When editing keep the "our code" entry point last in this list - makeConfig override depends on this position.
-	entry: ['@babel/polyfill'], //'./src/js/contentscript.js'], No contentscript needed for T4G
+	entry: ['core-js', './src/js/app.jsx'], //'./src/js/contentscript.js'], No contentscript needed for T4G
 	output: {
 		path: path.resolve(__dirname, './' + webDir + '/build/'), // NB: this should include js and css outputs
 		// filename: is left undefined and filled in by makeConfig
@@ -104,7 +104,7 @@ const makeConfig = ({ filename, mode, entry }) => {
 
 const configs = [
 	makeConfig({filename: 'js/bundle-debug.js', mode: 'development' }),
-	makeConfig({entry:'./src/js/setup-iframe.js', filename: 'js/bundle-setup-iframe-debug.js', mode: 'development' }),
+	// makeConfig({entry:'./src/js/setup-iframe.js', filename: 'js/bundle-setup-iframe-debug.js', mode: 'development' }),
 //	Add additional configs (eg with different entry points) like this:
 //	makeConfig({filename: 'js/other-bundle-debug.js', mode: 'development', entry:'./src/js/other.js'}),
 ];
