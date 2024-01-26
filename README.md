@@ -2,7 +2,21 @@
 
 A chrome browser extension for Good-Loop and My-Loop
 
-# Test builds
+## Sunset
+
+See <https://developer.chrome.com/blog/resuming-the-transition-to-mv3>
+
+Due to Google Chrome's transition to Manifest V3, we are no longer able to support this extension. This extension is now deprecated and will no longer be updated. 
+
+Current users of this extension will receive a notification of discontinuation. They will be able to continue using the extension until Google finally phases out Manifest V2 support. The current estimated date for this is June 2024.
+
+## How this extension works
+
+This extension is simply a wrapper for the Good-Loop My-Loop websites. It will redirect the browser's new tab page to a HTML page that contains an iframe to <https://my.good-loop.com/newtab.html>. This allows us the develop and update the new tab page without having to update the extension itself.
+
+Thus code of Tabs for Good is separated into this repository and the `my-loop` repository.
+
+## Test builds
 
 Test builds can be downloaded from: https://t4g-test-builds.good-loop.com/
 
